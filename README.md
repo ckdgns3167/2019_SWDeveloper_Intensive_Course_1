@@ -1,6 +1,5 @@
-<div>
+<div style="display:inline;">
   <h1>#제주에서 자바(JAVA) 한잔하기!</h1> 
-  <img src="https://user-images.githubusercontent.com/52457180/61193310-934ce800-a6f5-11e9-836e-63c8cd123b7f.png"></img>
   <img src="https://user-images.githubusercontent.com/52457180/61193310-934ce800-a6f5-11e9-836e-63c8cd123b7f.png"></img>
 </div>
 ---------------------------- 
