@@ -13,4 +13,5 @@
 ### 1일차 학습 내용 : Java설치 및 기본 이론
 
 * JAVA의 main 함수의 필요성
-* JAVA의 8개 자료형
+* JAVA의 8개 자료형 - 적합한 기억공간을 갖는 자료형을 택할 줄 알아야 함. 
+                   - byte, short, int, long, float, double, boolean, char
