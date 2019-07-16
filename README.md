@@ -71,4 +71,70 @@
     return 0;
   }
   ```
+* Java의 클래스 개념
+  - 클래스를 선언하고, 그 이름으로 변수 선언이 가능한데, 이런 변수를 참조형 변수라고 한다. (실은 다 포인터)
+  - new를 이용해서 인스턴스를 만들 수 있다.
+  - 클래스 이름으로 선언된 변수는 참조형 변수이고, 이것은 해당 클래스를 이용해 만들어진 인스턴스를 가리킬 수 있다.
+  - 클래스는 설계도다. (변수, 함수가 설계되어 있음.) - 실제로 활용은 안 된다.
+  - new를 이용해 실제로 클래스 설계도를 통해 하나의 객체를 만들어낸다. 그 때 그 객체는 자신의 변수와 함수를 이용 가능한 상태가 된다. 
+  - 인스턴스는 이름이 없다. 단 포인터로 실체에 접근이 가능하다.
+  - 변수와 함수를 실제로 보유하고 있는 것은 참조형 변수가 아닌 인스턴스이다. 
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  //두 개의 변수를 묶어서 apple이라는 이름으로 '구조체'를 정의
+  struct apple {
+	int i;
+	int add;
+  };
+
+  int main(){
+	//apple 구조체의 기억공간을 가리킬 수 있는 포인터 변수 t 선언
+	struct apple* t;
+	//구조체 크기의 기억공간 할당. t 포인터가 해당 공간을 가리킴.
+	t = (struct apple*) malloc(sizeof(struct apple));//java의 new와 같은 기능을 함. 이 기억공간은 이름이 없음. 하지만 포인터로 접근이 가능하게 됨. 
+	//이 공간은 로컬 변수가 아님, 자동삭제 안 된다.
+	//free는 입력으로 들어온 변수가 가리키는 대상을 삭제한다. 즉 t라는 기억공간을 자유롭게 해준다. 
+	free(t);
+	
+	return 0;
+  }
+  ```	- 
+  - Java의 클래스는 C에서의 구조체와 비슷하다.
+* Java의 객체지향적인 설계는 C로도 구현이 가능하다. Java의 new에 대한 깊은 이해
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  int apple_add(int a, int b)
+  {
+    	return 100;
+  }
+  //구조체 
+  typedef struct apple {
+  	int i;
+	int (*add) (int,int);
+  }Apple;
+
+  Apple* new_Apple(){
+  Apple* n;
+  n = (Apple*) malloc(sizeof(Apple));
+  n->add = apple_add;
+  	return n;
+  }
+  int main(){
+  Apple* t;
+  //	struct apple* t;
+  //	 t = (Apple*) malloc(sizeof(Apple));
+  t = new_Apple();
+  //	t = (struct apple*) malloc(sizeof(struct apple));
+  // 포인터 t 가 가리키는 대상 안에 있는 i 변수에 대입한다.  
+  t->i = 100;
+  t->add = apple_add;
+  printf("%d\n",(t->i+t->add(10,20)));
+
+  free(t);
+
+  return 0;
+  }
   
+  ```
