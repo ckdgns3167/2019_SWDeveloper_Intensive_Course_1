@@ -117,25 +117,25 @@
   
   //인스턴스 생성과 유사한 동작을 하게 된다. 이렇게 해서 생성되고, 이것을 가리키는 포인터를 통해서 함수와 변수가 접근되어질 수 있다. 
   Apple* new_Apple(){
-  Apple* n;
-  n = (Apple*) malloc(sizeof(Apple));
-  n->add = apple_add;
+  	Apple* n;
+  	n = (Apple*) malloc(sizeof(Apple));
+  	n->add = apple_add;
   	return n;
   }
   int main(){
-  Apple* t;
+  	Apple* t;
   //	struct apple* t;
   //	 t = (Apple*) malloc(sizeof(Apple));
-  t = new_Apple();
+  	t = new_Apple();
   //	t = (struct apple*) malloc(sizeof(struct apple));
   // 포인터 t 가 가리키는 대상 안에 있는 i 변수에 대입한다.  
-  t->i = 100;
-  t->add = apple_add;
-  printf("%d\n",(t->i+t->add(10,20)));
+  	t->i = 100;
+  	t->add = apple_add;
+  	printf("%d\n",(t->i+t->add(10,20)));
 
-  free(t);
+  	free(t);
 
-  return 0;
+  	return 0;
   }
   
   ```
