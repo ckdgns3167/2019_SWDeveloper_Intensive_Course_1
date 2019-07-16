@@ -54,9 +54,9 @@
   - 함수 포인터 개념 이해하기 
   ```
   int add( int i, int j ) {
-	  int t;
-	  t = i + j;
-	  return t;
+    int t;
+    t = i + j;
+    return t;
   }
   void main(){
     int r;
@@ -84,20 +84,20 @@
   #include <stdlib.h>
   //두 개의 변수를 묶어서 apple이라는 이름으로 '구조체'를 정의
   struct apple {
-	int i;
-	int add;
+    int i;
+    int add;
   };
 
   int main(){
-	//apple 구조체의 기억공간을 가리킬 수 있는 포인터 변수 t 선언
-	struct apple* t;
-	//구조체 크기의 기억공간 할당. t 포인터가 해당 공간을 가리킴.
-	t = (struct apple*) malloc(sizeof(struct apple));//java의 new와 같은 기능을 함. 이 기억공간은 이름이 없음. 하지만 포인터로 접근이 가능하게 됨. 
-	//이 공간은 로컬 변수가 아님, 자동삭제 안 된다.
-	//free는 입력으로 들어온 변수가 가리키는 대상을 삭제한다. 즉 t라는 기억공간을 자유롭게 해준다. 
-	free(t);
+    //apple 구조체의 기억공간을 가리킬 수 있는 포인터 변수 t 선언
+    struct apple* t;
+    //구조체 크기의 기억공간 할당. t 포인터가 해당 공간을 가리킴.
+    t = (struct apple*) malloc(sizeof(struct apple));//java의 new와 같은 기능을 함. 이 기억공간은 이름이 없음. 하지만 포인터로 접근이 가능하게 됨. 
+    //이 공간은 로컬 변수가 아님, 자동삭제 안 된다.
+    //free는 입력으로 들어온 변수가 가리키는 대상을 삭제한다. 즉 t라는 기억공간을 자유롭게 해준다. 
+    free(t);
 	
-	return 0;
+    return 0;
   }
   ```	- 
   - Java의 클래스는 C에서의 구조체와 비슷하다.
@@ -107,35 +107,35 @@
   #include <stdlib.h>
   int apple_add(int a, int b)
   {
-    	return 100;
+    return 100;
   }
   //구조체 
   typedef struct apple {
-  	int i;
-	int (*add) (int,int);
+    int i;
+    int (*add) (int,int);
   }Apple;
   
   //인스턴스 생성과 유사한 동작을 하게 된다. 이렇게 해서 생성되고, 이것을 가리키는 포인터를 통해서 함수와 변수가 접근되어질 수 있다. 
   Apple* new_Apple(){
-  	Apple* n;
-  	n = (Apple*) malloc(sizeof(Apple));
-  	n->add = apple_add;
-  	return n;
+    Apple* n;
+    n = (Apple*) malloc(sizeof(Apple));
+    n->add = apple_add;
+    return n;
   }
   int main(){
-  	Apple* t;
-  //	struct apple* t;
-  //	 t = (Apple*) malloc(sizeof(Apple));
-  	t = new_Apple();
-  //	t = (struct apple*) malloc(sizeof(struct apple));
-  // 포인터 t 가 가리키는 대상 안에 있는 i 변수에 대입한다.  
-  	t->i = 100;
-  	t->add = apple_add;
-  	printf("%d\n",(t->i+t->add(10,20)));
+    Apple* t;
+    //	struct apple* t;
+    //	t = (Apple*) malloc(sizeof(Apple));
+    t = new_Apple();
+    //	t = (struct apple*) malloc(sizeof(struct apple));
+    // 포인터 t 가 가리키는 대상 안에 있는 i 변수에 대입한다.  
+    t->i = 100;
+    t->add = apple_add;
+    printf("%d\n",(t->i+t->add(10,20)));
 
-  	free(t);
+    free(t);
 
-  	return 0;
+    return 0;
   }
   
   ```
