@@ -50,4 +50,24 @@
     printf("%d\n", *h);
   }
   ```
-  - 함수의 동작 방식에 대한 이해
+  - 함수의 기본 동작 방식에 대한 이해 : 매개면수, 리턴타입, ...
+  - 함수 포인터 개념 이해하기 
+  ```
+  int add( int i, int j ) {
+	  int t;
+	  t = i + j;
+	  return t;
+  }
+  void main(){
+    int r;
+    //아래와 같이 선언된 변수 fp는 함수를 가리킬수 있다.
+    //리턴 타입이 int, 매개변수가 int, int 형태로 선언된 함수를 
+    int (*fp) (int, int);
+    fp = add;
+    
+    //fp 라는 함수가 아닌 fp 변수가 가리키는 함수를 호출한다.
+    r = fp(10,20);
+    printf("%d\n", r);
+    return 0;
+  }
+  ```
