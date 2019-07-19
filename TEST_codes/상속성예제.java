@@ -19,7 +19,7 @@ public class 상속성예제 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		B t = new B();
-		System.out.println(t.apple);
+		System.out.println(t.add(1,2));
 	}
 	// Q. 에러 안나는 이유를 설명하시오 : extends를 통해 부모 클래스의 멤버 변수를 그대로 물려 받게 되는데, B의 인스턴스가 생성되면
 	// B의 apple의 기억공간이 할당되고 이 인스턴스를 가리키는 참조형 변수를 통해 apple에 접근할 수 있게 되어 값을 뽑아낼 수 있다.

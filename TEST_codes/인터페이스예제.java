@@ -12,7 +12,7 @@ class Applea {
 
 }
 
-// extends와 interface 동시에 상속 가능
+// extends와 interface 동시에 적용 가능
 //두개 이상의 인터페이스로부터 상속받아 다 구현시키는 것이 가능하다. 
 class Calc extends Applea implements ICalc, IUnknown {// 이것도 상속받는 개념이 맞음.
 	// 인터페이스 내에 있는 모든 추상 메서드를 모두 오버라이딩해야함.
