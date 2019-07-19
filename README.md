@@ -196,5 +196,8 @@
 * static initializer, Class.forName("클래스명") : 클래스를 찾아내서 해당 클래스를 강제로 메모리에 올림.
   - Class 로딩된 클래스들을 관리하는 클래스 
 
-* getMethod() : 클래스 안에서 선언된 함수에 대한 포인터들을 추출한다.
-* 
+* getMethod() : 클래스 안에서 선언된 함수에 대한 포인터들을 추출한다.  
+* annotation  
+* 예외처리  
+* Collection - List, Map, Set   
+
