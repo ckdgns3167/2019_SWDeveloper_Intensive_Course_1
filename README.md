@@ -219,3 +219,13 @@
 * 데이터 베이스 기초 문법 : DDL, DML 쿼리 경험
 * char와 varchar의 차이와 쓰임
 * group by절이 있을 때, where절과 having절에서의 쓰임 - 동작 순서를 살펴봄 그룹별로 나온 결과에 대한 선처리는 having에서!
+
+
+### 9일차 학습 내용 : 데이터베이스 설계 - 다이어그램 그리기
+
+* E-R diagram 예제 그려보기 - 비디오 가게
+* 정규화개념 살짝 ~
+* JOIN - INNER , OUTER
+* CONSTRAINT 
+* 무결성
+
