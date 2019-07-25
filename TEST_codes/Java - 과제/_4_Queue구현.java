@@ -56,7 +56,7 @@ class LinkedListQueue extends Queue {
 	}
 }
 
-public class Queue구현 {
+public class _4_Queue구현 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

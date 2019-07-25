@@ -41,7 +41,7 @@ class HW {
 	}
 }
 
-public class 중복No랜덤어레이 {
+public class _6_중복No랜덤어레이 {
 
 	/*
 	 * 2가지 이상의 다른 방법으로 구현하기 1가지 방법에는 Collection 사용 금지

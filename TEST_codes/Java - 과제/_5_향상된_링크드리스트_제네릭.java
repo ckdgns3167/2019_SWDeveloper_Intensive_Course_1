@@ -34,7 +34,7 @@ class LinkedList<T> {
 
 }
 
-public class 향상된_링크드리스트_제네릭 {
+public class _5_향상된_링크드리스트_제네릭 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
