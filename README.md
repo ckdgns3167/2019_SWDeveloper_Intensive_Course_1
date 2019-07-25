@@ -238,3 +238,4 @@
 * 복습내용 : Class.forName - 호출하면 클래스의 static 이니셜라이져 호출하게됨. 클래스 로딩시킴.
 * JDBC 실습 - cursor개념 - 서버 사이드 커서!!, Connection , executeUpdate , executeQuery
 * select된 결과가 conn.close() 이후에도 남아있을 수 있게 하기 위해 그 결과의 한 레코드를 객체화 하여 List에 담는다.
+* mysql 과 oracle에 대한 jdbc 커넥션 하고 일처리 하는 부분은 별 다른게 없음. 
