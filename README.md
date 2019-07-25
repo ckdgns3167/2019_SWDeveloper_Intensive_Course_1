@@ -236,3 +236,5 @@
 * join의 개념 : 각각의 런들이 다 끝나고 실행되는 것을 만들 때 쓰임. 
 * 소켓 통신 쓰레드 적용하여 구현하기
 * 복습내용 : Class.forName - 호출하면 클래스의 static 이니셜라이져 호출하게됨. 클래스 로딩시킴.
+* JDBC 실습 - cursor개념 - 서버 사이드 커서!!, Connection , executeUpdate , executeQuery
+* select된 결과가 conn.close() 이후에도 남아있을 수 있게 하기 위해 그 결과의 한 레코드를 객체화 하여 List에 담는다.
