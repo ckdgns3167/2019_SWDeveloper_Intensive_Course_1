@@ -239,3 +239,12 @@
 * JDBC 실습 - cursor개념 - 서버 사이드 커서!!, Connection , executeUpdate , executeQuery
 * select된 결과가 conn.close() 이후에도 남아있을 수 있게 하기 위해 그 결과의 한 레코드를 객체화 하여 List에 담는다.
 * mysql 과 oracle에 대한 jdbc 커넥션 하고 일처리 하는 부분은 별 다른게 없음. 
+
+
+### 11일차 학습 내용
+
+* 전 까지는 mysql에 대한 DB 실습을 했다. 이때부터 Oracle로 실습을 했다. 약간 문법의 차이가 있다.
+* DML 쿼리문에 대한 함수로 만들어서 재사용성 올리는 거 배움
+* sql 문장의 에러로 인한 stmt.executeUpdate에서 예와 발생함-> conn.close()실행되야 하는데 못하게 됨.->try/catch/finally를 통해 이를 처리하게 함.  
+* 트렌젝션 - 2개 이상의 update 문을 하나 처럼 묶는 개념..
+* 로그에 쌓았다가 한꺼번에 다 반영하던지 다 버리던지 !!
