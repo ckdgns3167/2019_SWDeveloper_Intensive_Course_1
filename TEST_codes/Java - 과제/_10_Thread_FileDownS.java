@@ -1,4 +1,3 @@
-package 코드와같이이해하는자바;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -43,7 +42,7 @@ class Download implements Runnable {
 
 }
 
-public class TestFileDownS {
+public class _10_Thread_FileDownS {
 	public static void main(String[] args) throws Exception {
 		ServerSocket svr = new ServerSocket(1123);
 		Thread[] threads = new Thread[3];

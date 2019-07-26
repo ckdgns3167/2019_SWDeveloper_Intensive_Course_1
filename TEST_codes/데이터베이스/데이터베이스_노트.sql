@@ -130,7 +130,7 @@ Q. 역삼동 학생들의 국어 성적은 ?
 
 select * from studentt where addr LIKE '역%';--서브쿼리 1
 select * from scoret where subid = 'KOR1' and stid IN ('10101','10103');--서브쿼리 2
-select * from scoret where subid = 'KOR1' and stid IN (select * from studentt where addr LIKE '역%');--최종쿼리
+select * from scoret where subid = 'KOR1' and stid IN (select stid from studentt where addr LIKE '역%');--최종쿼리
 --여러 개 나오는 결과를 이용할 때는 IN 또는 NOT IN 을 사용한다.
 --하나의 쿼리의 결과를 이용해서 다른 쿼리를 돌릴 수 있다.
 --이것을 서브쿼리 라고 한다.
@@ -172,7 +172,7 @@ select stid, avg(score) from scoret group by stId having avg(score) <=75;-
 --from 절의 서브쿼리 : select 결과를 마치 table 처럼 보면 된다
 select stid, round( avg(score), 3 ) as xx from scoret group by stid;
 -- 될것 같은데 이게 안되나? (from 절 서브쿼리는 데이터베이스 마다 지원 안하기도 한다.) => AS X 붙여주면 됨...
-select * from (select stid, round( avg(score), 3 ) as xx from scoret group by stid)  where xx <=75;
+select * from (select stid, round( avg(score), 3 ) as X from scoret group by stid) AS XX where X <=75;
 
 --view는 실제로 데이터가 존재하는 테이블이 아니라 테이블 데이터를 이용해서 만들어진 하나의 결과화면일 뿐이다.
 --view를 대상으로 수정삭제는 무의미하다.

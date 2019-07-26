@@ -1,9 +1,7 @@
-package 코드와같이이해하는자바;
-
 import java.net.Socket;
 import java.io.*;
 
-public class TestFileDownC {
+public class _10_Thread_FileDownC {
 	public static void main(String[] args) throws Exception {
 		long startTime = System.currentTimeMillis();
 
