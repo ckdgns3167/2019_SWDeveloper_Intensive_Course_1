@@ -1,4 +1,4 @@
-package 코드와같이이해하는자바;
+
 /*
  	Program : executable file
  	Process : a running program

@@ -20,7 +20,7 @@ class StudentVO{
 	public String getAddr(){return addr;}
 	public void setAddr(String i){addr =i;}
 }
-public class Test099_4 {
+public class Test099_4_Mjdbc_VO의사용 {
 	
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub

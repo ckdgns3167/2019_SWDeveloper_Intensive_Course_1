@@ -1,7 +1,7 @@
 
 import java.sql.*;
 
-public class Test101 {
+public class Test101_1_Ojdbc_conn {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub

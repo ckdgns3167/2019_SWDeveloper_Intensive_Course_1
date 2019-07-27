@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class Test099_2_JDBC_executeUpdate {
+public class Test099_2_Mjdbc_executeUpdate {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub

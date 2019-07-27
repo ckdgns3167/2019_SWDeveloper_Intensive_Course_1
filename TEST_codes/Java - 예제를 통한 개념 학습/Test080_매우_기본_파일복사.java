@@ -1,9 +1,8 @@
-package 코드와같이이해하는자바;
 
-//package temp;
+package temp;
 import java.io.*;
 
-public class Test080 {
+public class Test080_매우_기본_파일복사 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub

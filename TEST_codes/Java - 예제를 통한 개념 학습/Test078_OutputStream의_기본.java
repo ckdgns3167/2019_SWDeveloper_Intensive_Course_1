@@ -1,10 +1,9 @@
-package 코드와같이이해하는자바;
-//package temp;
+package temp;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class Test078 {
+public class Test078_OutputStream의_기본 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub

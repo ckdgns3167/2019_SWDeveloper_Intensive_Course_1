@@ -2,7 +2,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class Test099_1_JDBC_Connection {
+public class Test099_1_Mjdbc_Connection {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class Test084_1 {
+public class Test084_1_1바이트_255까지 {
 
 	public static void main(String[] args) throws IOException {
 		/*

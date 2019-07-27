@@ -1,11 +1,10 @@
-package 코드와같이이해하는자바;
-
+package temp;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-//package temp;
-public class Test079 {
+
+public class Test079_InputStream의_기본 {
 	/*
 	 in.read() 는 오버라이딩 된 코드일까? inputStream에서 선언된 걸까?
 	 - 코드를 읽는 눈이 있어야한다.

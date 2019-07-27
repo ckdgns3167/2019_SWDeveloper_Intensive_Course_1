@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Test089 {
+public class Test089_파일존재여부확인 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub

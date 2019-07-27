@@ -1,12 +1,10 @@
-package 코드와같이이해하는자바;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class Test081 {
+public class Test081_버퍼이용_빠른파일복사 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub

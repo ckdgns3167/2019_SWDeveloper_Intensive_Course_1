@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 
-public class Test086 {
+public class Test086_문자_파일입출력2 {
 	/*
 	 OutputStreamWriter InputStreamReader 는 char 입출력을
 	 byte 입출력으로 전환해준다.

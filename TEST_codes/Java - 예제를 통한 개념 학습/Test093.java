@@ -1,4 +1,3 @@
-package 코드와같이이해하는자바;
 
 class CustomThreaded implements Runnable {
 	/*

@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Test099_3_JDBC_executeQuery {
+public class Test099_3_Mjdbc_executeQuery {
 	static {
 		// 클래스가 로딩되는 시점에 호출된다.
 		/*

@@ -7,7 +7,7 @@ import java.sql.*;
  	상속받은 클래스가 공급되는 구조이다.
  */
 
-public class Test100_1 {
+public class Test101_2_Ojdbc_Query {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub

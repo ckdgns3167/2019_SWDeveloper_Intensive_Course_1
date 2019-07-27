@@ -1,5 +1,5 @@
 
-public class Test092 {
+public class Test092_String문자비교방법2가지 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class Test084_2 {
+public class Test084_2_데코레이터_Object {
 
 	public static void main(String[] args) throws IOException {
 		/*

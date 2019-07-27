@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class Test083 {
+public class Test083_데코레이터_io {
 
 	public static void main(String[] args) throws IOException {
 		/*
 		 IGreet ig = new SharpDeco(new HelloGreet());
 		 ig.greet();
-		 - 이전에 배웠던 데코레이터 패턴 예쩨 (숙제였음)
+		 - 이전에 배웠던 데코레이터 패턴 예제 (숙제였음)
 		 
 		 out.write(..) 호출했을 때 대상은 FileOutputStream 에서 지정한다.
 		 BufferedOutputStream에서 버퍼링을 제공한다.
