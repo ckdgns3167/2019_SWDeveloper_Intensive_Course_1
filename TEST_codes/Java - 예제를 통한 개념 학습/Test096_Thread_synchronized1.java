@@ -69,7 +69,7 @@ class B implements Runnable {
 
 }
 
-public class Test096 {
+public class Test096_Thread_synchronized1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

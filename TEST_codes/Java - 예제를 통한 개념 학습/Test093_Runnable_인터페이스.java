@@ -13,7 +13,7 @@ class CustomThreaded implements Runnable {
 
 }
 
-public class Test093 {
+public class Test093_Runnable_인터페이스 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

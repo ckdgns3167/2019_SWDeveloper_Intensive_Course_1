@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class Test103 {
+public class Test103_jdbc_close의_안전한처리 {
 	
 	/*
 	 	executeUpdate 상황에서 에러나도 conn.close() 는 되어야 한다??? 무조건 되야 한다..비싼자원이야 아껴야해...

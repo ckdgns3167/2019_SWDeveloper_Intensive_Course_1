@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class Test106 {
+public class Test106_jdbc_commit_rollback {
 	/*
 	 * conn을 통해서 executeUpdate 하면 LOG를 거쳐서 Table에 저장된다. 로그에 잠시 머물다 곧바로 반영된다. jdbc 는
 	 * autoCommit을 지원한다. (즉, executeUpdate 시에 무조건 테이블에 곧바로 커밋이 자동으로 먹는다)

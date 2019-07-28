@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import BangMyungVO;
-
 class BangMyungVO {
 	private Integer no = null;
 	private String gul = null;
@@ -38,7 +36,7 @@ class BangMyungVO {
 
 }
 
-public class Test102 {
+public class Test102_Ojdbc_VO의사용 {
 	public static void main(String[] args) throws Exception {
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE", "HR", "HR");

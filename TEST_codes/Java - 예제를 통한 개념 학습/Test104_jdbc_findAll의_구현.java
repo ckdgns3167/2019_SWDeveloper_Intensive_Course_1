@@ -8,7 +8,7 @@ import java.util.List;
 
 import temp.BangMyungVO;
 
-public class Test104 {
+public class Test104_jdbc_findAll의_구현 {
 	public static List<BangMyungVO> findAll() throws Exception {
 		Connection conn = null;
 		Statement stmt = null;

@@ -32,7 +32,7 @@ class C implements Runnable {
 
 }
 
-public class Test098 {
+public class Test098_Thread_join {
 	public static void main(String[] args) {
 		Thread[] threads = new Thread[3];
 

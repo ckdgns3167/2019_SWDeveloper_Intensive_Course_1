@@ -51,7 +51,7 @@ class B implements Runnable {
 
 }
 
-public class Test094 {
+public class Test094_Thread의_예제1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

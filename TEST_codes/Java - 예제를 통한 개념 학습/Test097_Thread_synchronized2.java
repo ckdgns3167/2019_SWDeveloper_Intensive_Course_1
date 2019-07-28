@@ -1,5 +1,3 @@
-package 코드와같이이해하는자바;
-
 class Toilet {
 	public void bigWork(String by) {
 		synchronized (this) {
@@ -77,7 +75,7 @@ class B implements Runnable {
 
 }
 
-public class Test097 {
+public class Test097_Thread_synchronized2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
