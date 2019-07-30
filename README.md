@@ -23,6 +23,8 @@
 * 변수의 선언과 변수 Copy의 이해
 * 변수 박싱, 언박싱, 오토박싱의 이해 - 개인적으로 공부할 내용.
 
+--------------------------------
+
 
 ### 2 일차 학습 내용 : 코드 작성의 노하우 & C언어와의 차이(변수, 함수)
 
@@ -147,30 +149,29 @@
   - 클래스, 인스턴스, new, 참조형, 자료형 변수, 멤버 변수, 멤버 함수, 로컬 변수, 생성자 함수, :    
   - 클래스는 어떤 것을 만들기 위해 필요한 설계도라고 볼 수 있습니다. 클래스가 선언되었다고 그안에 표현된 것들이 동작되는 것이 아닙니다. 실제로 동작될 수 있기 위해 new라는 예약어를 통해 해당 클래스의 인스턴스를 생성시킬 수 있습니다. 근데 이 인스턴스는 이름이 없습니다. 그냥 메모리에 공간이 할당된 상태일 뿐입니다. 이제 이것을 참조형 변수라는 것을 통해 가리킬 수 있고 멤버 변수, 멤버 함수에 접근하여 동작할 수 있게 합니다. 자료형 변수의 대입은 오른쪽 값이 왼쪽으로 복사되어 대입되며, 참조형 변수의 대입은 오른쪽 포인터가 가리키고 있는 대상을 왼쪽 포인터가 가리키게 되는 과정입니다. 생성자함수는 클래스 내에 존재하는 것인데, 인스턴스가 생성될 때 호출되는 함수입니다. 멤버 변수의 초기화를 위해 사용됩니다. 
   
+-------------------------
+
 ### 3 일차 학습 내용 : 자바의 객체지향적 특징을 예제 코드를 직접 코딩하면서 이해했다.  
 
 * 객체지향 언어의 3대 속성
   - 상속성 : 클래스를 상속해서 클래스를 만든다.
   - 은닝성 : 감추고 싶은건 감출 수 있다. private, protected, public
   - 다형성 : 하나의 심볼(이름)이 여러 실체에 매핑될 수 있다.
-  
 * protected  
   - 같은 패키지에서는 접근가능.
   - 다른 패키지에서는 접근 불가능.
-  
 * friendly  
   - 같은 패키지에서는 public 으로... 
   - 다른 패키지에서는 private 으로...
-  
 * 멤버변수는 무조건 private로 하는게 맞다. 어차피 부모의 멤버변수가 호출되기 때문.. 오버라이딩되지않는다. 변수는.
   - 이 변수에 접근하기 위해서는 게터, 세터를 이용해 접근하고 변경할 수 있다. (바람직한 방법, 헷갈리지 않는다 결국에는)
   - 조상에서 getXXX가 보이걸랑 그런 변수가 있는 줄 알고 XXX 변수는 자손에서 쓰지 않도록 피해갈 수 있어야한다.
-  
 * 상속(extends, abstract, interface, implements)
 * 디자인 패턴
   - 데코레이터 패턴 : 자바 io 패키지가 이걸로 만들어져 있음!
-  
 * Object(이 둘이 뭉뚱그려져 있는 개념) = class(추상적인 특징을 모아둔 설계도) + instance(설계도 대로 그 특징을 갖는 실체, 자기 자신 혼자 독립적인 것) 
+
+-------------------------------
 
 ### 4 일차 학습 내용  
 
@@ -185,6 +186,8 @@
 * 커맨드패턴, 빈 인터페이스의 사용법 - 쓰임당하는 쪽에서 쓰는 쪽에 어떤 용도로 써달라고 할때 절묘하게 쓰일 수 있다.
 * 스트링버퍼의 append의 이해
 
+----------------------
+
 ### 5 일차 학습 내용 
 
 * instanceof 의 사용이유 : [참조형 변수 instanceof 클래스명] : 참조형 변수가 클래스명으로 캐스팅이 가능한지 알아보기위해
@@ -193,19 +196,21 @@
 * 패키지의 사용과 import의 사용 : 다른 패키지의 클래스는 반드시 import해서 사용, 그래도 클래스를 찾을 수 없는 경우 클래스 위치를 지정해 주어야 한다. (내 생각 : 별 쓸일 없으니 이런게 있다고만 알아두자) 그래고 이클립스 환경이 아닌 리눅스 환경에서 컴파일해서 클래스 파일 수정하고 하는 과정에서 많이 쓰임 - 유지보수에 좋음... 하지만 지금은 이클립스 환경에서는 쓸일이없긴함. 
   - javac -d [폴더] 클래스명.java 를 cmd에서 하면 나중에 같은 패키지에서 다른 클래스가 가져다 쓸 수 있게 함, 클래스 파일이 [폴더]를 목적(d)로 저장시켜주는 것. 
   - -classpath를 사용해서 위치 지정, 옵션이 없으면 자동으로 path에 . 으로 됨. 그래서 java로 실행할 때 .;실행파일위치로 classpath를 지정해준다.
-
 * static initializer, Class.forName("클래스명") : 클래스를 찾아내서 해당 클래스를 강제로 메모리에 올림.
   - Class 로딩된 클래스들을 관리하는 클래스 
-
 * getMethod() : 클래스 안에서 선언된 함수에 대한 포인터들을 추출한다.  
 * annotation  
 * 예외처리  
 * Collection - List, Map, Set   
 
+----------------------------------
+
 ### 6 일차 학습 내용
 
 * 소켓 통신의 기본을 직접 코딩해보며, 이해를 해봄.
 * 파일 입출력 - 버퍼의 사용 이유
+
+-------------------
 
 
 ### 7 일차 학습 내용
@@ -213,13 +218,16 @@
 * String 멤버함수 
   - indexOf 와 subString을 조합하여 , 를 기준으로 문자열 분리 ==> split 함수와 비교해서 이해했음. 분리하는 문자의 개수에 따라 두 방법 중 하나를 택하여 사용하자!!!
   
-  
+---------------------------
+
 ### 8 일차 학습 내용 : 데이터베이스 교육 시작!!!
 
 * 7일차 과제 리뷰 : 서버와 클라이언트 간 소켓 통신으로 파일 전송 받기, 링크드 리스드를 파일에 저장하고 불러오기 프로그램 만들기
 * 데이터 베이스 기초 문법 : DDL, DML 쿼리 경험
 * char와 varchar의 차이와 쓰임
 * group by절이 있을 때, where절과 having절에서의 쓰임 - 동작 순서를 살펴봄 그룹별로 나온 결과에 대한 선처리는 having에서!
+
+------------------
 
 
 ### 9 일차 학습 내용 : 데이터베이스 설계 - 다이어그램 그리기
@@ -229,6 +237,8 @@
 * JOIN - INNER , OUTER
 * CONSTRAINT 
 * 무결성
+
+-----------------
 
 ### 10 일차 학습 내용
 
@@ -241,6 +251,8 @@
 * select된 결과가 conn.close() 이후에도 남아있을 수 있게 하기 위해 그 결과의 한 레코드를 객체화 하여 List에 담는다.
 * mysql 과 oracle에 대한 jdbc 커넥션 하고 일처리 하는 부분은 별 다른게 없음. 
 
+------
+
 
 ### 11 일차 학습 내용
 
@@ -251,6 +263,8 @@
 * 로그에 쌓았다가 한꺼번에 다 반영하던지 다 버리던지 !!
 * 동일한 conn에서 작업한 내용만 트랜잭션으로 묶을 수 있다.
 * commit , rollback
+
+--------
 
 ### 12 일차 학습 내용 - JSP를 배우기 위한 아파치 톰캣 사용 이해
 
@@ -375,120 +389,509 @@ server.xml 의 Host 아래에 Context를 아래와 같이 추가한다.
 8. PrintWriter out = response.getWriter(); 를 이용하여 내보내는 것은 요청으로 들어온 브라우저 쪽으로 내보내진다.
 9. 요청했던 브라우저는 응답으로 전달된 내용을 받아 화면에 출력한다.
 
+----
 
-
-### 12 일차 학습 내용 - 서블릿 
+### 13 일차 학습 내용 - 서블릿 
 
 * HTML의 form에서 submit을 누르면 action에서 지정한 서블릿을 실행케하는 예제 학습
+  + 서블릿을 거쳐서 다시 html로 돌아오는 예제 ( 요청과 응답이 두 번씩 일어남. )
 
-  * 서블릿을 거쳐서 다시 html로 돌아오는 예제 ( 요청과 응답이 두 번씩 일어남. )
+```html
+-test_02.html
 
-  ```html
-  -test_02.html
-  
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <meta charset="EUC-KR">
-  <title>Insert title here</title>
-  </head>
-  <body>
-      <!--                     **중요**
-  		sumbit을 누르면 , action에 지저된 페이지를 요청한다.
-  		form 안의 input에 입력된 정보를 물고 간다.
-  		이렇게 요청받은 것은 서버에서 request.getParameter로 추출한다.
-  		name에 지정된 것을 key값으로 사용하여 하게 된다.
-  	-->
-      
-  	<form method="POST" action="form_test2">
-  		<input type="text" name="gul" size=""50/>
-          <!--
-  			checkbox 는 체크 후에 넘기면 value에 지정된 값이 읽혀지고
-  			체크없이 넘기면 null 값을 읽게 된다.
-  		-->
-        	<input type="checkbox" name="abcd" value="apple"/>
-  	    <input type="checkbox" name="xyzz" value="banana"/>
-          <!--
-  			같은 이름을 가진 radio 는 하나만 체크가 된다. 
-  		-->
-          <input type="radio" name="method" value="plus" checked="checked"/>
-  	    <input type="radio" name="method" value="minus"/>
-          <!--
-  			type="text" 와 같은데 입력 내용이 보이지 않는다.
-  		-->
-          <input type="password" name="pwd" size="16"/>
-          <!--
-  			여러줄 입력할 때 사용되는 것, 태그 안의 입력 값은 디폴트로 들어가 있는 것
-  		-->
-          <br/><br/><br/><!--줄바꿈-->
-          <textarea rows="7" cols="50" name="content">helloWorld</textarea>
-          
-          <!--
-  			흔히 콤보박스라는 선택창이 나오고 그 중의 하나만 선택할 수 있다.
-  		-->
-         	<br/><br/><br/>
-         	<select name="fruit">
-  	    	<option value="apple">사과</option>
-  	    	<option value="banana">바나나</option>
-  	    	<option value="orange">오렌지</option>
-  	    	<option value="kiwi">키위</option>
-  		</select>
-          
-  		<input type="submit">
-  	</form>
-  </body>
-  </html>
-  ```
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+    <!--                     **중요**
+		sumbit을 누르면 , action에 지저된 페이지를 요청한다.
+		form 안의 input에 입력된 정보를 물고 간다.
+		이렇게 요청받은 것은 서버에서 request.getParameter로 추출한다.
+		name에 지정된 것을 key값으로 사용하여 하게 된다.
+	-->
+    
+	<form method="POST" action="form_test2">
+		<input type="text" name="gul" size=""50/>
+        <!--
+			checkbox 는 체크 후에 넘기면 value에 지정된 값이 읽혀지고
+			체크없이 넘기면 null 값을 읽게 된다.
+		-->
+      	<input type="checkbox" name="abcd" value="apple"/>
+	    <input type="checkbox" name="xyzz" value="banana"/>
+        <!--
+			같은 이름을 가진 radio 는 하나만 체크가 된다. 
+		-->
+        <input type="radio" name="method" value="plus" checked="checked"/>
+	    <input type="radio" name="method" value="minus"/>
+        <!--
+			type="text" 와 같은데 입력 내용이 보이지 않는다.
+		-->
+        <input type="password" name="pwd" size="16"/>
+        <!--
+			여러줄 입력할 때 사용되는 것, 태그 안의 입력 값은 디폴트로 들어가 있는 것
+		-->
+        <br/><br/><br/><!--줄바꿈-->
+        <textarea rows="7" cols="50" name="content">helloWorld</textarea>
+        
+        <!--
+			흔히 콤보박스라는 선택창이 나오고 그 중의 하나만 선택할 수 있다.
+		-->
+       	<br/><br/><br/>
+       	<select name="fruit">
+	    	<option value="apple">사과</option>
+	    	<option value="banana">바나나</option>
+	    	<option value="orange">오렌지</option>
+	    	<option value="kiwi">키위</option>
+		</select>
+        
+		<input type="submit">
+	</form>
+</body>
+</html>
+```
+
+```java
+package study2;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class FormTestServlet extends HttpServlet{
+
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("FormTestServlet");
+		//http://localhost:8081/study2/test_02.html
+        
+        //text
+         String gul = request.getParameter("gul");
+		System.out.println("gul : "+ gul);
+        
+        //checkedbox
+         String abcd = request.getParameter("abcd");
+		String xyzz = request.getParameter("xyzz");
+		System.out.println("abcd : "+ abcd);
+		System.out.println("xyzz : "+ xyzz);
+        
+        //radio
+        String method = request.getParameter("method");
+        System.out.println("method : " + method);
+        
+        //password
+        String pwd = request.getParameter("pwd");
+        System.out.println("pwd : " + pwd);
+        
+        //textarea
+        String content = request.getParameter("content");
+        System.out.println("content : " + content);
+        
+        //select
+        String fruit = request.getParameter("fruit");
+        System.out.println("fruit : " + fruit);
+        
+        response.sendRedirect("/study2/test_02.html ");//컨텍스트 경로, 파일 경로
+	}
+	/*
+		sendRedirect : 브라우저에게 해당 경로로 요청할 것을 지시한다.
+		getParameter : 요청시에 곁다리(?) 로 들어온 정보를 추출한다.
+	*/
+}
+```
+
+------
+
+- **중요**) DAO pattern 설계 기법
+
+  -  jdbc 와 web쪽 구현을 서로 영향 없이 구현할 수 있게 하는 방법!
+    - BangMyungDAO interface
 
   ```java
   package study2;
   
-  import java.io.IOException;
+  import java.util.List;
   
-  import javax.servlet.ServletException;
-  import javax.servlet.http.HttpServlet;
-  import javax.servlet.http.HttpServletRequest;
-  import javax.servlet.http.HttpServletResponse;
+  public interface BangMyungDAO {
   
-  public class FormTestServlet extends HttpServlet{
+  	public void add(BangMyungVO vo) throws Exception;
   
-  	@Override
-  	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-  		System.out.println("FormTestServlet");
-  		//http://localhost:8081/study2/test_02.html
-          
-          //text
-           String gul = request.getParameter("gul");
-  		System.out.println("gul : "+ gul);
-          
-          //checkedbox
-           String abcd = request.getParameter("abcd");
-  		String xyzz = request.getParameter("xyzz");
-  		System.out.println("abcd : "+ abcd);
-  		System.out.println("xyzz : "+ xyzz);
-          
-          //radio
-          String method = request.getParameter("method");
-          System.out.println("method : " + method);
-          
-          //password
-          String pwd = request.getParameter("pwd");
-          System.out.println("pwd : " + pwd);
-          
-          //textarea
-          String content = request.getParameter("content");
-          System.out.println("content : " + content);
-          
-          //select
-          String fruit = request.getParameter("fruit");
-          System.out.println("fruit : " + fruit);
-          
-          response.sendRedirect("/study2/test_02.html ");//컨텍스트 경로, 파일 경로
-  	}
-  	/*
-  		sendRedirect : 브라우저에게 해당 경로로 요청할 것을 지시한다.
-  		getParameter : 요청시에 곁다리(?) 로 들어온 정보를 추출한다.
-  	*/
+  	public List<BangMyungVO> findAll() throws Exception;
+  
   }
   ```
+
+  
+
+  ​	: BangMyungDAO - 방명록에 필요한 데이터 입출력 기능을 모아서 추상화 했다. add, findAll
+
+  ------
+
+  - 인터페이스 implements
+
+    - BangMyungDAO_KaraImpl : 가짜 데이터베이스
+
+      ```java
+      package study2;
+      
+      import java.util.ArrayList;
+      import java.util.Date;
+      import java.util.List;
+      
+      public class BangMyungDAO_KaraImpl implements BangMyungDAO {// 데이터 베이스 없이 돌아가는 DAO를 구축해놓은 클래스...!!
+      
+      	private static List<BangMyungVO> data = new ArrayList<BangMyungVO>();// DB를 흉내내는 것
+      	private static int no = 0;
+      
+      	@Override
+      	public void add(BangMyungVO vo) throws Exception {
+      		vo.setNo(no++);
+      		Date now = new Date();
+      		vo.setTheTime(now.toString());
+      		data.add(vo);
+      	}
+      
+      	@Override
+      	public List<BangMyungVO> findAll() throws Exception {
+      		return data;
+      	}
+      
+      }
+      ```
+
+    - BangMyungDAO_OracleImpl : 진짜 데이터베이스와의 연결
+
+      ```java
+      package study2;
+      
+      import java.sql.Connection;
+      import java.sql.DriverManager;
+      import java.sql.ResultSet;
+      import java.sql.Statement;
+      import java.util.ArrayList;
+      import java.util.List;
+      
+      public class BangMyungDAO_OracleImpl implements BangMyungDAO {
+      
+      	@Override
+      	public void add(BangMyungVO vo) throws Exception {
+      		// TODO Auto-generated method stub
+      
+      		Connection conn = null;
+      		Statement stmt = null;
+      		try {
+      			Class.forName("oracle.jdbc.driver.OracleDriver");
+      			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521/XE", "HR", "HR");
+      			stmt = conn.createStatement();
+      			String sql = "insert into bangmyung_t values (seq_bangmyung.nextval, '" + vo.getGul() + "', sysdate)";
+      			stmt.executeUpdate(sql);
+      
+      		} catch (Exception e) {
+      			throw e;
+      		} finally {
+      			try {
+      				if (stmt != null)
+      					stmt.close();
+      				if (conn != null)
+      					conn.close();
+      			} catch (Exception e) {
+      				e.printStackTrace();
+      			}
+      
+      		}
+      	}
+      
+      	@Override
+      	public List<BangMyungVO> findAll() throws Exception {
+      		// TODO Auto-generated method stub
+      		List<BangMyungVO> ls = new ArrayList<BangMyungVO>();
+      		Connection conn = null;
+      		Statement stmt = null;
+      		ResultSet rs = null;
+      		try {
+      			Class.forName("oracle.jdbc.driver.OracleDriver");
+      			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521/XE", "HR", "HR");
+      			stmt = conn.createStatement();
+      			String sql = "SELECT no, gul, the_time FROM bangmyung_t order by no";
+      			rs = stmt.executeQuery(sql);
+      			while (rs.next()) {
+      				BangMyungVO vo = new BangMyungVO();
+      				vo.setNo(rs.getInt(1));
+      				vo.setGul(rs.getString(2));
+      				vo.setTheTime(rs.getString(3));
+      				ls.add(vo);
+      			}
+      		} catch (Exception e) {
+      			throw e;
+      		} finally {
+      			if (rs != null)
+      				rs.close();
+      			if (stmt != null)
+      				stmt.close();
+      			if (conn != null)
+      				conn.close();
+      		}
+      
+      		return ls;
+      	}
+      
+      }
+      ```
+
+    **설명** 
+
+    - 데이터를 다루는 클래스는 독립시켜서 만드는 경향이 있다. (별도의 클래스)
+    - A라는 사람과 B라는 사람이 한 프로젝트를 같이 한다.
+    - A 는 데이터베이스와 관련된 기능을 구현.
+    - B 는 웹 프로그래밍과 관련된 기능 구현
+    - 원래대로라면 A 끝나고 결과코드를 B에 넘겨주고 B는 그걸 받아서 일한다.
+    - 하지만 이것은 비효율적이다. 이유는 에러도 더 날 수 있고 동시에 얼마든지 일 할 수 있다.
+    - BangMyungDAO_KaraImpl : DB 연동을 비슷하게 흉내내준다.
+       		add를 이용해서 레코드를 쌓고, findAll 로 쌓인 레코드를 출력 가능하다.
+    - B 는 BangMyungDAO_KaraImpl 을 이용해서 작업에 착수한다. 동시에
+    - A 는 BangMyungDAO_OracleImpl 을 구현한다. (jdbc 코드 작성)
+    - 양쪽이 다 테스트가 끝나서 통합에 들어간다. 매우 간단함. 
+
+    
+
+    **결론**
+
+    - "데이터를 다루는 코드를 독립된 클래스로 만들되 그 작업들을 추상화한 인터페이스를 기반으로 만드는 설계 기법을 DAO pattern이라고 한다."
+
+    
+
+    **DAO를 이용한 구현**
+
+    class : BangMyung2List
+
+    ```java
+    package study2;
+    
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    import java.util.List;
+    
+    import javax.servlet.ServletException;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+    
+    // /bangmyung_list 로 요청이 들어오면 보여지게 세팅해 보자.
+    public class BangMyung2List extends HttpServlet {
+    
+    	@Override
+    	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    		System.out.println("BangMyung2List");
+    		BangMyungDAO dao = new BangMyungDAO_KaraImpl();
+    		List<BangMyungVO> ls = null;
+    		try {
+    			ls = dao.findAll();
+    		} catch (Exception e) {
+    
+    			
+    		}
+    		resp.setContentType("text/html;charset=euc-kr");
+    		PrintWriter out = resp.getWriter();
+    		out.println("<html>");
+    		out.println("	<body>");
+    		out.println("		<table border=\"0\" cellspacing=\"2\" cellpadding=\"12\">");
+    		
+    		int i = 0;
+    		for (BangMyungVO vo : ls) {
+    			String color = ((++i % 2) == 0) ? "#aabbcc" : "#ccddee";
+    			out.println("			<tr>");
+    			out.println("				<td bgColor='" + color + "'>");
+    			out.println(vo.getNo());
+    			out.println("				</td>");
+    			out.println("				<td bgColor='" + color + "'>");
+    			out.println(vo.getGul());
+    			out.println("				</td>");
+    			out.println("				<td bgColor='" + color + "'>");
+    			out.println(vo.getTheTime());
+    			out.println("				</td>");
+    			out.println("			</tr>");
+    		}
+    		out.println("		<table>");
+    
+    		/*
+    		 * <form method=\"POST\" action=\"bangmyung_add2\"> <input
+    		 * type=\"text\" name=\"\" size=\"50\"/> <input type=\"submit\"/> </form>
+    		 */
+    		out.println("<form method=\"POST\" action=\"bangmyung_add2\">");
+    		out.println("<input type=\"text\" name=\"gul\" size=\"50\"/>");
+    		out.println("<input type=\"submit\"/>");
+    		out.println("</form>");
+    
+    		out.println("	</body>");
+    		out.println("</html>");
+    		out.close();
+    	}
+    
+    }
+    ```
+
+    class : BangMyung2Add2
+
+    ```java
+    package study2;
+    
+    import java.io.IOException;
+    
+    import javax.servlet.ServletException;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+    
+    public class BangMyung2Add2 extends HttpServlet {
+    
+    	@Override
+    	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    		System.out.println("BangMyung2Add2");
+    		String gul = request.getParameter("gul");
+    		BangMyungVO vo = new BangMyungVO();
+    		vo.setGul(gul);
+    		BangMyungDAO dao = new BangMyungDAO_KaraImpl();
+    		try {
+    			dao.add(vo);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		response.sendRedirect("/study2/bangmyung_list");
+    	}
+    
+    }
+    
+    ```
+
+--------
+
+* **중요**)  여러 사람이 한 사이트에 접속할 때 발생할 수 있는 위험에 대처하기
+
+  1. 되도록 변수를 멤버변수를 두기보다 로컬변수로 두기
+
+  2. synchronized의 사용 : 하나의 서블릿 인스턴스에 대해 한 번에 많은 thread가 접근하지 못하도록 막아준다. 아래는 이에 대한 예제 코드.
+
+     class : LifeServlet
+
+     ```java
+     package study3;
+     
+     import java.io.IOException;
+     import java.io.PrintWriter;
+     
+     import javax.servlet.ServletException;
+     import javax.servlet.http.HttpServlet;
+     import javax.servlet.http.HttpServletRequest;
+     import javax.servlet.http.HttpServletResponse;
+     
+     /*
+      	많은 사람들이 동시에 접속해도 동일한 문자열이 계속 찍힌다.
+      	-> 동일한 인스턴스가 계속 재사용되고 있다. 메모리 관리에서는 장점이다.
+      	-> 한꺼번에 많이 들어와도 적게 메모리를 소모한다.
+      	
+      */
+     public class LifeServlet extends HttpServlet {
+     	int i = 0;// 전역변수 멤버함수
+     
+     	@Override
+     	protected void service(HttpServletRequest request, HttpServletResponse response)
+     			throws ServletException, IOException {
+     		System.out.println(this.toString());// 하나의 인스턴스가 재활용됨을 볼 수 있다.
+     
+     		// 하지만 여러 사람이 동시에 접속하면 여러개의 스레드에 의해 하나의 서블릿 인스턴스가 공유된다.
+     		// 해결방법은 첫 번째 로컬 변수만 쓰는 법, 두 번째 동기화(synchronized)
+     		PrintWriter out = response.getWriter();
+     		out.println("<html><body>");
+     		
+     		// 왜 synchronized 가 필요할까?
+     		// 동시 요청시 여러개의 쓰레드가 하나의 서블릿 인스턴스를 사용할 수 있다.
+     		synchronized (this) {
+     			i = i + 1;
+     			for (int j = 0; j < 500000; j++) {
+     				out.println(i);
+     			}
+     		}
+     		out.println("</body></html>");
+     		out.flush();
+     		out.close();
+     	}
+     
+     }
+     ```
+
+* **중요**) HttpServlet 클래스의 init의 동작 방식과 다운로드 파일이 있다면 저장되는 곳이 어디며 어떤식으로 하면 될까? 그리고 web.xml 파일에 내용을 읽어들일 수 있을까?
+
+  ```java
+  ...생략...
+      /*
+  	 * 서블릿의 인스턴스는 재활용된다.
+  	 * 인스턴스는 재활용을 위해 내부적으로 적재되는데, 적재되는 시점에 호출되는 함수가
+  	 init - 최초 요청시에만 호출된다.
+  	 */
+      @Override
+  	public void init(ServletConfig config) throws ServletException {
+  		System.out.println("init");
+  
+  		// web.xml 에 설정된 내용을 읽어들일 수 있는 방법을 제공한다.
+  		System.out.println(config.getInitParameter("apple"));
+  
+  		/*
+  		 WEB-INF 폴더의 절대경로값을 얻어온다. 브라우저가 접근 못하는 폴더가 업로드
+  		 파일을 놓기에 가장 적합하다. 허락 받고 (돈내고) 다운 받을때 FileInputStream
+           으로 읽어 내보낸다. 그 때 FileInputStream 은 절대 경로를 필요로 한다. 
+           그 경우에 getRealPath 는 유용하게 사용된다.
+  		 */
+  		ServletContext application = config.getServletContext();
+  		String path = application.getRealPath("/WEB-INF/");
+  		System.out.println(path);
+  	}
+  
+  	/* web.xml에서 는 이렇게 param 설정이 되어있음
+  	 * <servlet> <servlet-name>abcd6</servlet-name>
+  	 * <servlet-class>study3.ConfigServlet</servlet-class> <init-param>
+  	 * <param-name>apple</param-name> <param-value>blabla</param-value>
+  	 * </init-param> </servlet>
+  	 * 
+  	 * <servlet-mapping> <servlet-name>abcd6</servlet-name>
+  	 * <url-pattern>/config</url-pattern> </servlet-mapping>
+  	 */
+  ```
+
+* **중요**) HttpServlet service메서드에서의 여러가지 request 
+
+  ```java
+  ...생략...
+      @Override
+  	protected void service(HttpServletRequest request, HttpServletResponse response)
+  			throws ServletException, IOException {
+  		System.out.println("service");
+  
+  		// 컨텍스트 경로
+  		String l = request.getContextPath();
+  		System.out.println("getContextPath : " + l);
+  
+  		// IP 주소 다음 나오는 전체경로
+  		String m = request.getRequestURI();
+  		System.out.println("getRequestURI : " + m);
+  
+  		// 접속한 브라우저의 IP 주소 값
+  		String g = request.getRemoteAddr();
+  		System.out.println("getRemoteAddr : " + g);
+  
+  		/*
+  		 접속한 브라우저와 운영체제 정보를 담은 문자열이 얻어진다. 
+  		 이것을 이용하여 모바일로 접근한건지 컴으로 접근한 건지 알 수 있고
+  		 모바일용 화면과 컴퓨터용 화면을 구분하여 제공할 수도 있다.
+  		 */
+  		String o = request.getHeader("User-Agent");
+  		System.out.println("getHeader " + o);
+  	}
+  ```
+
+
 
