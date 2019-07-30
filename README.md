@@ -377,5 +377,118 @@ server.xml 의 Host 아래에 Context를 아래와 같이 추가한다.
 
 
 
+### 12 일차 학습 내용 - 서블릿 
 
+* HTML의 form에서 submit을 누르면 action에서 지정한 서블릿을 실행케하는 예제 학습
+
+  * 서블릿을 거쳐서 다시 html로 돌아오는 예제 ( 요청과 응답이 두 번씩 일어남. )
+
+  ```html
+  -test_02.html
+  
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="EUC-KR">
+  <title>Insert title here</title>
+  </head>
+  <body>
+      <!--                     **중요**
+  		sumbit을 누르면 , action에 지저된 페이지를 요청한다.
+  		form 안의 input에 입력된 정보를 물고 간다.
+  		이렇게 요청받은 것은 서버에서 request.getParameter로 추출한다.
+  		name에 지정된 것을 key값으로 사용하여 하게 된다.
+  	-->
+      
+  	<form method="POST" action="form_test2">
+  		<input type="text" name="gul" size=""50/>
+          <!--
+  			checkbox 는 체크 후에 넘기면 value에 지정된 값이 읽혀지고
+  			체크없이 넘기면 null 값을 읽게 된다.
+  		-->
+        	<input type="checkbox" name="abcd" value="apple"/>
+  	    <input type="checkbox" name="xyzz" value="banana"/>
+          <!--
+  			같은 이름을 가진 radio 는 하나만 체크가 된다. 
+  		-->
+          <input type="radio" name="method" value="plus" checked="checked"/>
+  	    <input type="radio" name="method" value="minus"/>
+          <!--
+  			type="text" 와 같은데 입력 내용이 보이지 않는다.
+  		-->
+          <input type="password" name="pwd" size="16"/>
+          <!--
+  			여러줄 입력할 때 사용되는 것, 태그 안의 입력 값은 디폴트로 들어가 있는 것
+  		-->
+          <br/><br/><br/><!--줄바꿈-->
+          <textarea rows="7" cols="50" name="content">helloWorld</textarea>
+          
+          <!--
+  			흔히 콤보박스라는 선택창이 나오고 그 중의 하나만 선택할 수 있다.
+  		-->
+         	<br/><br/><br/>
+         	<select name="fruit">
+  	    	<option value="apple">사과</option>
+  	    	<option value="banana">바나나</option>
+  	    	<option value="orange">오렌지</option>
+  	    	<option value="kiwi">키위</option>
+  		</select>
+          
+  		<input type="submit">
+  	</form>
+  </body>
+  </html>
+  ```
+
+  ```java
+  package study2;
+  
+  import java.io.IOException;
+  
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  
+  public class FormTestServlet extends HttpServlet{
+  
+  	@Override
+  	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  		System.out.println("FormTestServlet");
+  		//http://localhost:8081/study2/test_02.html
+          
+          //text
+           String gul = request.getParameter("gul");
+  		System.out.println("gul : "+ gul);
+          
+          //checkedbox
+           String abcd = request.getParameter("abcd");
+  		String xyzz = request.getParameter("xyzz");
+  		System.out.println("abcd : "+ abcd);
+  		System.out.println("xyzz : "+ xyzz);
+          
+          //radio
+          String method = request.getParameter("method");
+          System.out.println("method : " + method);
+          
+          //password
+          String pwd = request.getParameter("pwd");
+          System.out.println("pwd : " + pwd);
+          
+          //textarea
+          String content = request.getParameter("content");
+          System.out.println("content : " + content);
+          
+          //select
+          String fruit = request.getParameter("fruit");
+          System.out.println("fruit : " + fruit);
+          
+          response.sendRedirect("/study2/test_02.html ");//컨텍스트 경로, 파일 경로
+  	}
+  	/*
+  		sendRedirect : 브라우저에게 해당 경로로 요청할 것을 지시한다.
+  		getParameter : 요청시에 곁다리(?) 로 들어온 정보를 추출한다.
+  	*/
+  }
+  ```
 
