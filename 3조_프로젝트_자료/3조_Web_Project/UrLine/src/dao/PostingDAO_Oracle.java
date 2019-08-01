@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,11 +7,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import VO.PostingVO;
+import vo.PostingVO;
 
-public class PostingDAO_Oracle extends DAO {
+public class PostingDAO_Oracle extends PostingDAO {
+	public static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+	public static final String URL = "jdbc:oracle:thin:@127.0.0.1:1521/XE";
+	public static final String ID = "HR";
+	public static final String PW = "HR";
 
-	public void add(PostingVO vo) throws Exception {
+	public void insert(PostingVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		Connection conn = null;
 		Statement stmt = null;

@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <servlet>
-    <servlet-name>abcd4</servlet-name>
-    <servlet-class>study2.BangMyung2Add2</servlet-class>
+    <servlet-name>posting</servlet-name>
+    <servlet-class>servlet.GuinList_servlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>abcd4</servlet-name>
-    <url-pattern>/bangmyung_add2</url-pattern>
+    <servlet-name>posting</servlet-name>
+    <url-pattern>/guin_list</url-pattern>
   </servlet-mapping>
+  
+   
+  <servlet>
+    <servlet-name>postAdding</servlet-name>
+    <servlet-class>servlet.GuinListAdd_servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>postAdding</servlet-name>
+    <url-pattern>/guin_add</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>

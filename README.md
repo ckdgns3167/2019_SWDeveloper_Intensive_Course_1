@@ -893,5 +893,173 @@ public class FormTestServlet extends HttpServlet{
   	}
   ```
 
+------------------------
 
+### 14일차 학습 내용
 
+* 테이블에 insert할 때 null일 경우 주의해야 할 상황
+
+  class : Test_110
+
+  ```java
+  package main;
+  
+  import java.sql.Connection;
+  import java.sql.DriverManager;
+  import java.sql.Statement;
+  
+  public class Test_110 {
+  
+  	public static void main(String[] args) throws Exception {
+  //		String data = "xyz";
+  		String data = null;
+  		Class.forName("oracle.jdbc.driver.OracleDriver");
+  		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521/XE", "HR", "HR");
+  
+  		// sql 이어 붙일 때 ''에 주의한다.
+  		// data 에 null일 때는 에러난다 왜? null이라는 문자열이 들어가기 때문 문자열 크기는 3까지임.
+  		// 나름 해결책이지만 null 가능 필드가 2개 이상이면 답이 없음.
+  		
+  		//이런 문제 때문에 현업에서는 PreparedStatement를 더 선호한다.
+  		// 현업에서는 아예 char는 무조건 4자리 이상을 잡게 하는 경우도 있다.
+  		String sql = (data != null) ? "insert into temp20t values ('" + data + "')"
+  				: "insert into temp20t values (null)";
+  		Statement stmt = conn.createStatement();
+  		stmt.executeUpdate(sql);
+  
+  		stmt.close();
+  		conn.close();
+  	}
+  
+  	/*
+  	 * create table temp20t( data char(3) null );
+  	 * 
+  	 * insert into temp20t values ('abc'); insert into temp20t values (null);
+  	 * 
+  	 * Q. null 4글자가 입력가능 ? - null은 빈값을 의미하므로 insert해도 안보임 - 'null'은 안들어감 3글자까지만 입력
+  	 * 가능. - null과 null 은 구분하자.
+  	 * 
+  	 * select * from temp20t where data = null; 데이터가 null인 걸 찾을 때 이런식으로 쓰지 않는다.
+  	 * null값을 찾을 때는 = null이 아닌 is null로 찾자.
+  	 */
+  }
+  ```
+
+  위와 같은 상황에서 대처하는 방법 : **PrepareStatement**의 사용
+
+  class : Test_111
+
+  ```java
+  package main;
+  
+  import java.sql.Connection;
+  import java.sql.DriverManager;
+  import java.sql.PreparedStatement;
+  
+  public class Test_111 {
+  
+  	public static void main(String[] args) throws Exception {
+  
+  		Class.forName("oracle.jdbc.driver.OracleDriver");
+  		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521/XE", "HR", "HR");
+  
+  		String sql = "insert into temp20t values (?)";// 딱 이런 문장만 입력으로 받음.
+  		
+  		//그냥 Statement를 쓸 때랑 구조가 약간 다름! 
+  		
+  		/*
+  		 	Statement 가 어떤 sql 문장이든 실행하는 범용적인데 반해서
+  		 	PreparedStatement 는 생성시에 준비한 그 문장만 실행할 수 있다.
+  		 	대신 ? 영역을 setString, setInteger 등을 이용하여 채울 수 있다.
+  		 	(순서가 1 부터 시작하는 것에 유의)
+  		 	
+  		 	execute 시에 매개변수 없음에 주의.
+  		 	
+  		 	이걸 쓰면 null 값을 넣을 때 '' 를 붙여야 할지를 결정하기 위해 이런 저런
+  		 	고민할 필요가 없어진다. (Test110 참고)
+  		 */
+  		PreparedStatement stmt = conn.prepareStatement(sql);
+  		stmt.setString(1, null);
+  		stmt.executeUpdate();
+  		stmt.close();
+  		conn.close();
+  	}
+  
+  }
+  ```
+
+--------------------
+
+* 가변 파라미터로 만들어진 메서드의 사용
+
+  class : Test_112 : auto boxing, un boxing , instanceof 의 사용
+
+  ```java
+  package main;
+  
+  public class Test112 {
+  	// 가변 파라미터 함수 선언 방법... 0..*
+  	// 실은 String...은 String[]과 동일하다.
+  	//
+  	public static void test(String... args) {
+  
+  	}
+  
+  	public static void test2(Object... args) {
+  		for (int i = 0; i < args.length; i++) {
+  			if (args[i] == null) {
+  				System.out.println("null");
+  			} else if (args[i] instanceof Integer) {
+  				int r = ((Integer) args[i]).intValue();
+  				System.out.println(r + 1);
+  			} else if (args[i] instanceof Double) {
+  				double r = ((Double) args[i]).doubleValue();
+  				System.out.println(r + 0.1);
+  			} else if (args[i] instanceof String) {
+  				System.out.println((String) args[i]);
+  			}
+  		}
+  	}
+  
+  	// Object arg_1 = 100; => 100을 new Integer(100)로 자동변환 오토박싱
+  	// Object arg_2 = 3.14; => 3.14를 new Doublce(3.14)로 자동변환
+  	// Object arg_2 = null;
+  	public static void main(String[] args) {
+  		test2(100, "", 3.14, null);
+  
+  		test("apple");
+  		test();
+  		test("apple", "banana");
+  
+  	}
+  	/*
+  	 * [ 개념복습 ] 
+  	 * Object i = 100(O) 오토 박싱 
+  	 * int j = i (X)
+  	 * 
+  	 * Integer i = 100(O) 언 박싱 
+  	 * int j = i (O)
+  	 */
+  
+  }
+  ```
+
+------------------
+
+* Test_113~114 , stateServlet , SessionServlet 정리 못함... 시간나면 하자.. 정리할 시간이 없었음
+* jsp도 ~ 115와 JSPServlet같이 내용 정리 ㄴ
+
+* jsp 116_0* 정리하기
+* 117 JSP로 랜덤컬러구구단 만들기 했음.
+* 방명 리스트 & add jsp로 구현하기
+* 에러페이지 만들기
+* 
+* 
+
+----------------
+
+### 15일차 학습 내용
+
+* Util, talkroomVO
+* 채팅방 만들기 예제 talkRoomVO , talkVO,많은 jsp...
+* 

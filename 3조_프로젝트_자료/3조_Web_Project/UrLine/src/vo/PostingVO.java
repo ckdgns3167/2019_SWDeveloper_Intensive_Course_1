@@ -1,7 +1,9 @@
-package VO;
+package vo;
 
 public class PostingVO {
-	private Integer userNO = null;
+	// user 테이블과 post 테이블을 join하여 나온 테이블에서 select할 때 컬럼 값들을 받아주기 위한 VO
+	private Integer userNo = null;
+	private Integer postNo = null;
 	private String nickName = null;
 	private Integer grade = null;
 	private String title = null;
@@ -13,12 +15,20 @@ public class PostingVO {
 	private String requestTime = null;// 부탁 시간
 	private String howMuch = null;// 부탁 시간 이후 얼마나 기다려야 하는지
 
-	public Integer getUserNO() {
-		return userNO;
+	public Integer getUserNo() {
+		return userNo;
 	}
 
-	public void setUserNO(Integer userNO) {
-		this.userNO = userNO;
+	public void setUserNo(Integer userNo) {
+		this.userNo = userNo;
+	}
+
+	public Integer getPostNo() {
+		return postNo;
+	}
+
+	public void setPostNo(Integer postNo) {
+		this.postNo = postNo;
 	}
 
 	public String getNickName() {
