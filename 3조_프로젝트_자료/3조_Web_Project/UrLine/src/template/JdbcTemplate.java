@@ -7,16 +7,19 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 public class JdbcTemplate {
 	static {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 연결 안됨");
 			e.printStackTrace();
 		}
 	}
 
-	private Connection makeConn() throws Exception {
+	public Connection makeConn() throws Exception {
 		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521/XE", "TEST", "TEST");
 		return conn;
 	}
@@ -62,7 +65,9 @@ public class JdbcTemplate {
 		try {
 			conn = makeConn();
 			stmt = conn.prepareStatement(sql);
-
+			for (int i = 0; i < args.length; i++) {
+				System.out.println(args[i]);
+			}
 			for (int i = 0; i < args.length; i++) {
 				if (args[i] == null) {
 					stmt.setObject(i + 1, null);
@@ -138,42 +143,4 @@ public class JdbcTemplate {
 		return rl;
 	}
 
-	public <T extends Object> T execute(String sql, PreparedStatementCallback<T> psc) throws Exception {
-		T t = null;
-
-		Connection conn = null;
-		PreparedStatement stmt = null;
-
-		try {
-			conn = makeConn();
-			stmt = conn.prepareStatement(sql);
-			t = psc.doInStatement(stmt);
-
-		} catch (Exception e) {
-			throw e;
-		} finally {
-			if (stmt != null)
-				stmt.close();
-			if (conn != null)
-				conn.close();
-		}
-		return t;
-	}
-
-	public <T extends Object> T execute(ConnectionCallback<T> ccb) throws Exception {
-		T t = null;
-
-		Connection conn = null;
-		try {
-			conn = makeConn();
-			t = ccb.doInConnection(conn);
-
-		} catch (Exception e) {
-			throw e;
-		} finally {
-			if (conn != null)
-				conn.close();
-		}
-		return t;
-	}
 }

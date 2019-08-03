@@ -1060,6 +1060,32 @@ public class FormTestServlet extends HttpServlet{
 
 ### 15일차 학습 내용
 
-* Util, talkroomVO
+* Util, 
 * 채팅방 만들기 예제 talkRoomVO , talkVO,많은 jsp...
-* 
+* 한글 안깨지게 하는 방법
+* 채팅 지우기, 추가하기 
+* test118~ ${} 의 사용
+* EL과 연동되는 jstl 120~121 bangmyung_list.jsp를 jstl로 다시 구현
+
+-------------------
+
+### 16일차 학습내용
+
+* Test122~file 서버에 업로드~ FileUpServlet 
+
+  * cos.jar 의 사용 multipartrequest
+  * init getRealPath
+
+  * FileDownServlet
+
+* forward
+
+* MVC모델 -> 스프링 구현?
+
+  디스페쳐는 핸들리퀘스트를 호출하고 스트링을 리턴 받는다.
+  그 스트링에 따라 리다이렉트가 될지 포워드가 될지 결정 됨.
+  forward는 무조건 do로(model2)
+
+* 매 JSP 마다 에러페이지로 가는 로직을 안만들어도 된다..
+
+* Test126.jsp,java URL.. 암호처리
