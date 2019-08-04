@@ -4,13 +4,21 @@ public class UserVO {
 	private Integer userNo = null;
 	private String id = null;
 	private String pw = null;
-	private String eMailId = null;
-	private String eMailDomain = null;
+	private String email = null;
 	private String phone = null;
 	private String nickname = null;
 	private Integer point = null;
 	private Integer grade = null;
 	private Integer sex = null;
+	private String name = null;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public Integer getSex() {
 		return sex;
@@ -23,8 +31,7 @@ public class UserVO {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return userNo + " " + id + " " + pw + " " + eMailId + "@" + eMailDomain + " " + phone + " " + nickname + " "
-				+ point + " " + grade;
+		return userNo + " " + id + " " + pw + " " + email + " " + phone + " " + nickname + " " + point + " " + grade;
 	}
 
 	public Integer getUserNo() {
@@ -51,20 +58,12 @@ public class UserVO {
 		this.pw = pw;
 	}
 
-	public String geteMailId() {
-		return eMailId;
+	public String getEmail() {
+		return email;
 	}
 
-	public void seteMailId(String eMailId) {
-		this.eMailId = eMailId;
-	}
-
-	public String geteMailDomain() {
-		return eMailDomain;
-	}
-
-	public void seteMailDomain(String eMailDomain) {
-		this.eMailDomain = eMailDomain;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPhone() {

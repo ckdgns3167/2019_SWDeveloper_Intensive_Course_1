@@ -1,6 +1,6 @@
 package vo;
 
-public class payRecordVO {
+public class PayRecordVO {
 	private Integer payNo = null;
 	private Integer payAmount = null;
 	private String payDate = null;

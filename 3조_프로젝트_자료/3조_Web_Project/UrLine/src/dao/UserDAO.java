@@ -93,7 +93,7 @@ public class UserDAO {
 		}
 	} 
 	
-	public int joinCheck(String id) {//아이디 중복을 막아주는 함수...
+	public int confrimId(String id) {//아이디 중복을 막아주는 함수...
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
