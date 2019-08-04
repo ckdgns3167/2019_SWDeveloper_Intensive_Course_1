@@ -1,6 +1,7 @@
 package com.urline.vo;
 
 public class PostVO {
+    //게시글에 대한 VO
     private Integer userNo = null;
     private Integer postNo = null;
     private String title = null;

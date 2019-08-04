@@ -2,7 +2,8 @@ package com.urline.vo;
 
 public class PostingVO {
 	// 이 VO는 USER 테이블과 POST테이블을 JOIN한 결과 테이블에 대한 것이다.
-	// 만든 이유는 게시판에 보여주기위한 데이터들이 USER와 POST에 산재되어 있기 때문이다.
+	// 만든 이유는 게시판에 보여주기위한 데이터들이 USER와 POST에 산재되어 있기때문에 JOIN을
+	// 통해 합치고 게시글에서 보여줄 필요한 데이터만 추출하기 위해서다.
 	private Integer userNo = null;
 	private Integer postNo = null;
 	private String nickName = null;

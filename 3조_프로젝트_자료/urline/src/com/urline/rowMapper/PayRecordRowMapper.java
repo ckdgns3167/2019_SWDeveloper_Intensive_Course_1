@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 
 public class PayRecordRowMapper implements RowMapper {
 
-
     @Override
     public Object mapRow(ResultSet rs) throws Exception {
         PayRecordVO vo = new PayRecordVO();
