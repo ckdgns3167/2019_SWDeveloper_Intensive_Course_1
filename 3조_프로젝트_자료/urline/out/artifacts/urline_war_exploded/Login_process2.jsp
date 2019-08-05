@@ -20,7 +20,7 @@
 	{
 		// 세션에 현재 아이디 세팅
 		session.setAttribute("sessionID", id);
-		msg = ctxPath + "/main.jsp";
+		msg = ctxPath + "/Main.jsp";
 	} else if (check == 0) // 비밀번호가 틀릴경우
 	{
 		msg = ctxPath + "/Login.jsp?msg=0";

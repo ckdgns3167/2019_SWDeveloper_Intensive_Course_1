@@ -8,8 +8,7 @@
 <title>메인 화면</title>
 
 <script type="text/javascript">
-	String
-	ctxPath = request.getContextPath();
+    var ctxPath = "<%=request.getContextPath()%>";
 	// 로그아웃 담당 JSP로 이동
 	function logoutPro() {
 		location.href = ctxPath + "/Logout_process2.jsp";
