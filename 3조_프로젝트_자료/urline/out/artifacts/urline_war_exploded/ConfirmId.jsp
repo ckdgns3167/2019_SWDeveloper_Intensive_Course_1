@@ -1,44 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.urline.dao.UserDAO" %>
-<%@ page contentType="text/html; charset=utf-8"
-		 pageEncoding="EUC-KR"%>
-<title>ID Áßº¹È®ÀÎ</title>
+<title>ID ì¤‘ë³µí™•ì¸</title>
 <%
-	//ÇÑ±Û ±úÁüÀ» ¹æÁöÇÏ±â À§ÇÑ ÀÎÄÚµù Ã³¸®
-	request.setCharacterEncoding("euc-kr");
+    //í•œê¸€ ê¹¨ì§ì„ ë°©ì§€í•˜ê¸° ìœ„í•œ ì¸ì½”ë”© ì²˜ë¦¬
+    request.setCharacterEncoding("UTF-8");
 
-	String id = request.getParameter("id");
-	UserDAO dao = UserDAO.getInstance();
-	int check = dao.confrimId(id);
-	
-	if(check == -1){
+    String id = request.getParameter("id");
+    UserDAO dao = UserDAO.getInstance();
+    int check = dao.confrimId(id);
+
+    if (check == -1) {
 %>
-		<b><font color="red"><%=id%></font>´Â ÀÌ¹Ì »ç¿ëÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù.</b>
-		<form name="checkForm" method="POST" action="ConfirmId.jsp">
-			<b>´Ù¸¥ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.</b><br /><br />
-			<input type="text" name="id"/>
-			<input type="submit" value="IDÁßº¹È®ÀÎ"/>
-		</form>
+<b><span style="color: red; "><%=id%>
+</span>ëŠ” ì´ë¯¸ ì‚¬ìš©ì¤‘ì¸ ì•„ì´ë””ì…ë‹ˆë‹¤.</b>
+<form name="checkForm" method="POST" action="ConfirmId.jsp">
+    <b>ë‹¤ë¥¸ ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.</b><br/><br/>
+    <input type="text" name="id"/>
+    <input type="submit" value="IDì¤‘ë³µí™•ì¸"/>
+</form>
 <%
-	} else {
+} else {
 %>
-		<center>
-			<b>ÀÔ·ÂÇÏ½Å <font color="red"><%=id%></font>´Â<br/>»ç¿ëÇÏ½Ç ¼ö ÀÖ´Â IDÀÔ´Ï´Ù. </b><br /><br />
-			<input type="button" value="¼±ÅÃÇÏ±â" onclick="setid()">
-		</center>
+<center>
+    <b>ì…ë ¥í•˜ì‹  <font color="red"><%=id%>
+    </font>ëŠ”<br/>ì‚¬ìš©í•˜ì‹¤ ìˆ˜ ìˆëŠ” IDì…ë‹ˆë‹¤. </b><br/><br/>
+    <input type="button" value="ì„ íƒí•˜ê¸°" onclick="setId()">
+</center>
 <%
-	}
+    }
 %>
 <script language="javascript">
-	function setid(){
-		opener.document.userInfo.id.value="<%=id%>";
-		opener.document.userInfo.confirm_id.disabled='disabled';
-		opener.document.userInfo.confirm_id.value ="»ç¿ë°¡´É";
-		opener.document.userInfo.id.disabled='disabled';
-		self.close();
-		//1. Áßº¹È®ÀÎ ¹öÆ° ºñÈ°¼ºÈ­ ½ÃÅ°±â , idÀÔ·Â¶õ ºñÈ°¼ºÈ­
-		//2. ±×¸®°í ÀÔ·Â°ªµé ´Ù ÀÔ·ÂÀÌ µé¾î°¡°£ »óÅÂ + Áßº¹°Ë»ç¹öÆ° ºñÈ°¼ºÈ­µÇ¸é °¡ÀÔÇÏ±â ¹öÆ° È°¼ºÈ­µÇ±â..!
-		//3. ÀÌ¸§ ÀÔ·Â¶õ¿¡´Â ÇÑ±ÛÀÌ¸§ 3±ÛÀÚ¸¸ ¹Şµµ·Ï, ´Ğ³×ÀÓÀº ÀÚÀ¯, ÇÚµåÆù ¹øÈ£´Â µü 11ÀÚÀÌ¸é¼­ ¾Õ¿¡´Â 010¸¸ ¹Şµµ·Ï, ÀÌ¸ŞÀÏÀ¸·Î ÀÔ·ÂµÇµµ·Ï
-		//		¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£´Â 8ÀÚ¸® ÀÌ»ó , ¾ÆÀÌµğ´Â ¿µ¾î¶Ç´Â¼ıÀÚ·Î¸¸(Ã¹±ÛÀÚ´Â ¿µ¾î·Î½ÃÀÛ)
-		
-	}
+    function setId() {
+
+        opener.document.userInfo.id.value = "<%=id%>";
+        opener.document.userInfo.confirm_id.disabled = 'disabled';
+        opener.document.userInfo.confirm_id.value = "ì‚¬ìš©ê°€ëŠ¥";
+        opener.document.userInfo.id.readOnly = 'readOnly';
+        /*
+        form submit ì „ì†¡ì‹œì—
+        disabled -> actioní˜ì´ì§€ì— ê°’ ì „ì†¡ ì•ˆë¨.
+        readonly -> actioní˜ì´ì§€ì— ê°’ ì „ì†¡ ë¨.
+         */
+        self.close();
+
+    }
 </script>
