@@ -12,6 +12,7 @@
     <link rel="stylesheet"
           href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
     <title>Your Line 회원가입</title>
+
 </head>
 <body>
 <div class="py-5 text-center" style="">
@@ -75,7 +76,7 @@
                                                                     name="pw" class="form-control" id="pw">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="rePw">비빌번호 확인</label> <input type="password" id="rePw"
+                                <label for="rePw">비밀번호 확인</label> <input type="password" id="rePw"
                                                                          name="rePw" class="form-control" id="rePw">
                             </div>
                         </div>

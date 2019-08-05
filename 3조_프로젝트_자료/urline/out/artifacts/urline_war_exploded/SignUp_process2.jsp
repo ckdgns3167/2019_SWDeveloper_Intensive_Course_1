@@ -15,9 +15,6 @@
 	Integer sex = Util.parseInt(request.getParameter("sex"));
 	String phone = request.getParameter("phone");
 
-    System.out.println(name);
-    System.out.println(nickName);
-
 	UserDAO dao = UserDAO.getInstance();
 	//db에 회원정보 commit
 	try {
@@ -26,6 +23,6 @@
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	response.sendRedirect(ctxPath + "/Main.jsp");
+	response.sendRedirect(ctxPath + "/Login.jsp");
 %>
 

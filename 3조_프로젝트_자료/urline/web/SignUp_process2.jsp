@@ -23,6 +23,6 @@
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	response.sendRedirect(ctxPath + "/Main.jsp");
+	response.sendRedirect(ctxPath + "/Login.jsp");
 %>
 
