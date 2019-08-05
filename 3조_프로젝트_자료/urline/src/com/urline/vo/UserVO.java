@@ -10,6 +10,15 @@ public class UserVO {
 	private Integer grade = null;
 	private Integer sex = null;
 	private String name = null;
+	private Integer type = null;
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
 	public String getName() {
 		return name;

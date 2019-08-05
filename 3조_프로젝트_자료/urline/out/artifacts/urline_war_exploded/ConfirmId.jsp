@@ -64,9 +64,7 @@
     }
 
     function reConfirmId() {
-        console.log("reConfirmId 함수 들어왔따");
         if (document.checkForm.id2.value == "") {
-            console.log("inputid.id2.value if문 드렁옴!");
             alert("중복확인에러: 아이디를 입력하세요.");
             return false;
         }

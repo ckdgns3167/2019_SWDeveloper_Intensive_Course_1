@@ -20,6 +20,7 @@ public class UserRowMapper implements RowMapper {
 		vo.setGrade(rs.getInt(7));
 		vo.setSex(rs.getInt(8));
 		vo.setName(rs.getString(9));
+		vo.setType(rs.getInt(10));
 		return vo;
 	}
 
