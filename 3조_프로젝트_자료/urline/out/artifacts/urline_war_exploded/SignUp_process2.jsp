@@ -1,25 +1,31 @@
-<%@ page import="com.urline.dao.Util" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.urline.dao.UserDAO" %>
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="EUC-KR"%>
+<%@ page import="com.urline.dao.Util" %>
 
 <%
-	// ÇÑ±Û ±úÁüÀ» ¹æÁöÇÏ±â À§ÇÑ ÀÎÄÚµù Ã³¸®
-	request.setCharacterEncoding("euc-kr");
+	// í•œê¸€ ê¹¨ì§ì„ ë°©ì§€í•˜ê¸° ìœ„í•œ ì¸ì½”ë”© ì²˜ë¦¬
+	request.setCharacterEncoding("UTF-8");
 	String ctxPath = request.getContextPath();
 
-	// È¸¿ø Á¤º¸¸¦ DB¿¡ ³Ö¾îÁÖ±â À§ÇØ ÀÔ·Â °ªµéÀ» °¡Á®¿È
+	// íšŒì› ì •ë³´ë¥¼ DBì— ë„£ì–´ì£¼ê¸° ìœ„í•´ ìž…ë ¥ ê°’ë“¤ì„ ê°€ì ¸ì˜´
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 	String name = request.getParameter("name");
 	String nickName = request.getParameter("nickname");
 	Integer sex = Util.parseInt(request.getParameter("sex"));
-	String email = request.getParameter("email");
 	String phone = request.getParameter("phone");
 
+    System.out.println(name);
+    System.out.println(nickName);
+
 	UserDAO dao = UserDAO.getInstance();
-	//db¿¡ È¸¿øÁ¤º¸ commit
-	dao.insertUser("insert into usert values (seq_userno.nextval,?,?,?,?,?,?,?,?,?)", id, pw, email, phone,
-			nickName, 0, 1000, sex, name);
-	response.sendRedirect(ctxPath + "/Login.jsp");
+	//dbì— íšŒì›ì •ë³´ commit
+	try {
+		dao.insertUser("insert into usert values (seq_userno.nextval,?,?,?,?,?,?,?,?)", id, pw, phone,
+				nickName, 0, 1000, sex, name);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	response.sendRedirect(ctxPath + "/Main.jsp");
 %>
 
