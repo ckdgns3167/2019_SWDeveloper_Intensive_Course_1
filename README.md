@@ -1096,6 +1096,6 @@ public class FormTestServlet extends HttpServlet{
 
 * Test127~
 * jar파일 추가 log4j관련 jar , log4j_test.jsp(에러안나는정도), Test127.jsp
-* CSS 수업 Test128.jsp ~ 
+*   
 
  
