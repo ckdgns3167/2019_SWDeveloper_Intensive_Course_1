@@ -13,6 +13,7 @@ public class PayRecordRowMapper implements RowMapper {
         vo.setPayNo(rs.getInt(1));
         vo.setPayAmount(rs.getInt(2));
         vo.setPayDate(rs.getString(3));
+        vo.setUserNo(rs.getInt(4));
         return null;
     }
 }

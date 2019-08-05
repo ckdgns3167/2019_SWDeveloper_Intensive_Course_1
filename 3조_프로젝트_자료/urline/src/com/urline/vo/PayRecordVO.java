@@ -1,31 +1,40 @@
 package com.urline.vo;
 
 public class PayRecordVO {
-	private Integer payNo = null;
-	private Integer payAmount = null;
-	private String payDate = null;
+    private Integer userNo = null;
+    private Integer payNo = null;
+    private Integer payAmount = null;
+    private String payDate = null;
 
-	public Integer getPayNo() {
-		return payNo;
-	}
+    public Integer getUserNo() {
+        return userNo;
+    }
 
-	public void setPayNo(Integer payNo) {
-		this.payNo = payNo;
-	}
+    public void setUserNo(Integer userNo) {
+        this.userNo = userNo;
+    }
 
-	public Integer getPayAmount() {
-		return payAmount;
-	}
+    public Integer getPayNo() {
+        return payNo;
+    }
 
-	public void setPayAmount(Integer payAmount) {
-		this.payAmount = payAmount;
-	}
+    public void setPayNo(Integer payNo) {
+        this.payNo = payNo;
+    }
 
-	public String getPayDate() {
-		return payDate;
-	}
+    public Integer getPayAmount() {
+        return payAmount;
+    }
 
-	public void setPayDate(String payDate) {
-		this.payDate = payDate;
-	}
+    public void setPayAmount(Integer payAmount) {
+        this.payAmount = payAmount;
+    }
+
+    public String getPayDate() {
+        return payDate;
+    }
+
+    public void setPayDate(String payDate) {
+        this.payDate = payDate;
+    }
 }
