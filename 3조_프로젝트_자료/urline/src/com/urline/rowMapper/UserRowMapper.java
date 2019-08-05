@@ -14,13 +14,12 @@ public class UserRowMapper implements RowMapper {
 		vo.setUserNo(rs.getInt(1));
 		vo.setId(rs.getString(2));
 		vo.setPw(rs.getString(3));
-		vo.setEmail(rs.getString(4));
-		vo.setPhone(rs.getString(5));
-		vo.setNickname(rs.getString(6));
-		vo.setPoint(rs.getInt(7));
-		vo.setGrade(rs.getInt(8));
-		vo.setSex(rs.getInt(9));
-		vo.setName(rs.getString(10));
+		vo.setPhone(rs.getString(4));
+		vo.setNickname(rs.getString(5));
+		vo.setPoint(rs.getInt(6));
+		vo.setGrade(rs.getInt(7));
+		vo.setSex(rs.getInt(8));
+		vo.setName(rs.getString(9));
 		return vo;
 	}
 

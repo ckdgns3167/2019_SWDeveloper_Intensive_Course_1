@@ -4,7 +4,6 @@ public class UserVO {
 	private Integer userNo = null;
 	private String id = null;
 	private String pw = null;
-	private String email = null;
 	private String phone = null;
 	private String nickname = null;
 	private Integer point = null;
@@ -31,7 +30,7 @@ public class UserVO {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return userNo + " " + id + " " + pw + " " + email + " " + phone + " " + nickname + " " + point + " " + grade;
+		return userNo + " " + id + " " + pw + " "  + " " + phone + " " + nickname + " " + point + " " + grade;
 	}
 
 	public Integer getUserNo() {
@@ -56,14 +55,6 @@ public class UserVO {
 
 	public void setPw(String pw) {
 		this.pw = pw;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getPhone() {
