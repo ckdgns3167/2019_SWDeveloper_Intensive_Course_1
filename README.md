@@ -1069,7 +1069,7 @@ public class FormTestServlet extends HttpServlet{
 
 -------------------
 
-### 16일차 학습내용
+### 16일차 학습 내용
 
 * Test122~file 서버에 업로드~ FileUpServlet 
 
@@ -1088,4 +1088,14 @@ public class FormTestServlet extends HttpServlet{
 
 * 매 JSP 마다 에러페이지로 가는 로직을 안만들어도 된다..
 
-* Test126.jsp,java URL.. 암호처리
+* Test126.jsp,java URL.. 암호처리 , jar파일 추가
+
+----------
+
+### 17일차 학습 내용
+
+* Test127~
+* jar파일 추가 log4j관련 jar , log4j_test.jsp(에러안나는정도), Test127.jsp
+* CSS 수업 Test128.jsp ~ 
+
+ 
