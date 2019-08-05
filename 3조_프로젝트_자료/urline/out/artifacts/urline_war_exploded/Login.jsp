@@ -13,6 +13,10 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <script type="text/javascript">
+    history.pushState(null, null, location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
 	function checkValue() {
 		inputForm = eval("document.loginInfo");
 		if (!inputForm.id.value) {
