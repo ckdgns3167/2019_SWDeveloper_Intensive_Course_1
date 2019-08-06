@@ -132,7 +132,7 @@ public class UserDAO {
             rs = pstmt.executeQuery();
             Object x = null;
             if (rs.next()) {
-                if (pr.equals("name") || pr.equals("phone")||pr.equals("nickname"))//문자
+                if (pr.equals("name") || pr.equals("phone")||pr.equals("nickname")||pr.equals("pw"))//문자
                     x = rs.getString(1);
                 else if (pr.equals("point") || pr.equals("grade") || pr.equals("sex"))//숫자
                     x = rs.getInt(1);
