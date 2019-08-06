@@ -45,7 +45,7 @@ public class UserDAO {
         return jdbcTemplate.query(sql, urm, args);
     }
 
-    public int loginCheck(String id, String pw) {
+    public int ID_PW_Check(String id, String pw) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -65,8 +65,7 @@ public class UserDAO {
 
                 if (dbPW.equals(pw)) {
                     x = rs.getInt("type");
-                }
-                else
+                } else
                     x = 0;
             } else {
                 x = -1;
@@ -119,4 +118,28 @@ public class UserDAO {
             closer(conn, pstmt);
         }
     }
+
+    public String getNickname(String id) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String nickname = null;
+        try {
+            conn = jdbcTemplate.makeConn();
+            String sql = "SELECT nickname FROM usert WHERE ID = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                nickname = rs.getString(1);
+            }
+            return nickname;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        } finally {
+            closer(conn, pstmt);
+        }
+    }
+
+
 }
