@@ -1,10 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-         pageEncoding="EUC-KR" %>
-<%
-    String id = session.getAttribute("userId").toString();
-%>
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 
@@ -16,24 +10,24 @@
     <link rel="stylesheet" href="css/mypage.css">
     <script type="text/javascript">
         var ctxPath = "<%=request.getContextPath()%>";
-        // ¸¸µé ÆË¾÷Ã¢ ÁÂ¿ì Å©±âÀÇ 1/2 ¸¸Å­ º¸Á¤°ªÀ¸·Î »©ÁÖ¾úÀ½
+        // ë§Œë“¤ íŒì—…ì°½ ì¢Œìš° í¬ê¸°ì˜ 1/2 ë§Œí¼ ë³´ì •ê°’ìœ¼ë¡œ ë¹¼ì£¼ì—ˆìŒ
         function popUpX(width){
             return (window.screen.width / 2) - (width / 2)
         }
         function popUpY(height){
             return (window.screen.height / 2) - (height / 2)
         }
-        function open_Modify_Or_Withdrawal(val) {// ¸¶ÀÌÆäÀÌÁö¿¡¼­ Á¤º¸ ¼öÁ¤(0), È¸¿ø Å»Åğ ¹öÆ°(1) À» ´­·¶À» ¶§ ÀÏÀÌ ÀÏ¾î³ªµµ·Ï ÇÏ´Â ÇÔ¼ö.
+        function open_Modify_Or_Withdrawal(val) {// ë§ˆì´í˜ì´ì§€ì—ì„œ ì •ë³´ ìˆ˜ì •(0), íšŒì› íƒˆí‡´ ë²„íŠ¼(1) ì„ ëˆŒë €ì„ ë•Œ ì¼ì´ ì¼ì–´ë‚˜ë„ë¡ í•˜ëŠ” í•¨ìˆ˜.
 
-            if (val == "0") {//Á¤º¸¼öÁ¤
+            if (val == "0") {//ì •ë³´ìˆ˜ì •
                 var url = ctxPath + "/UserInfoModify.jsp";
-                open(url, "Á¤º¸¼öÁ¤", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=500,left="+ popUpX(500) + ", top="+ popUpY(500));
-            } else if (val == "1") {//È¸¿øÅ»Åğ
+                open(url, "ì •ë³´ìˆ˜ì •", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180,left="+ popUpX(310) + ", top="+ popUpY(180));
+            } else if (val == "1") {//íšŒì›íƒˆí‡´
                 var url = ctxPath + "/UserWithdrawal.jsp";
-                open(url, "Å»ÅğÇÏ±â", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180,left="+ popUpX(310) + ", top="+ popUpY(180));
+                open(url, "íƒˆí‡´í•˜ê¸°", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180,left="+ popUpX(310) + ", top="+ popUpY(180));
             }
         }
-        function logout(){//·Î±×¾Æ¿ô ¹öÆ°À» ´­·µÀ»
+        function logout(){//ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ì„ ëˆŒëŸ¿ì„
             location.href=ctxPath+"/Logout_process2.jsp";
         }
     </script>
@@ -65,7 +59,7 @@
     <div class="container">
         <div class="row" style="">
             <div class="mx-auto mx-md-0 col-10 col-md-9" style="">
-                <h3 class="display-3 text-left" style="">¸¶ÀÌ ÆäÀÌÁö</h3>
+                <h3 class="display-3 text-left" style="">ë§ˆì´ í˜ì´ì§€</h3>
             </div>
         </div>
     </div>
@@ -79,7 +73,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body" style="">
-                                <h5 class="card-title"><b>ÇÁ·ÎÇÊ</b></h5>
+                                <h5 class="card-title"><b>í”„ë¡œí•„</b></h5>
                                 <div class="row">
                                     <div class="col-md-4"><img class="img-fluid d-block rounded-circle"
                                                                src="images/profile.png"></div>
@@ -89,15 +83,15 @@
                                                 <h3>Id</h3>
                                             </div>
                                             <div class="col-md-9" style="">
-                                                <h3 class="text-muted" style="">¾ÆÀÌµğ</h3>
+                                                <h3 class="text-muted" style="">ì•„ì´ë””</h3>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3 align-self-center px-0">
-                                                <h3>º°¸í</h3>
+                                                <h3>ë³„ëª…</h3>
                                             </div>
                                             <div class="col-md-9">
-                                                <h3 class="text-muted">´Ğ³×ÀÓ</h3>
+                                                <h3 class="text-muted">ë‹‰ë„¤ì„</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -112,15 +106,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <button class="card-link" onclick="open_Modify_Or_Withdrawal(0)">Á¤º¸¼öÁ¤</button>
-                                        <button  class="card-link text-warning" onclick="logout()">·Î±×¾Æ¿ô</button>
-                                        <button  class="card-link text-danger" onclick="open_Modify_Or_Withdrawal(1)">È¸¿øÅ»Åğ</button>
+                                        <button class="card-link" onclick="open_Modify_Or_Withdrawal(0)">ì •ë³´ìˆ˜ì •</button>
+                                        <button  class="card-link text-warning" onclick="logout()">ë¡œê·¸ì•„ì›ƒ</button>
+                                        <button  class="card-link text-danger" onclick="open_Modify_Or_Withdrawal(1)">íšŒì›íƒˆí‡´</button>
                                 </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><b>³ªÀÇ ´ñ±Û</b></h5>
+                            <h5 class="card-title"><b>ë‚˜ì˜ ëŒ“ê¸€</b></h5>
                             <div class="list-group" style="">
                                 <a href="#" class="list-group-item list-group-item-action"> Cras justo odio </a>
                                 <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
@@ -129,14 +123,14 @@
                                 <a href="#" class="list-group-item list-group-item-action mb-3">Vestibulum at eros</a>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 text-center"><a href="#" class="card-link">´õº¸±â</a></div>
+                                <div class="col-md-12 text-center"><a href="#" class="card-link">ë”ë³´ê¸°</a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6" style="">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"><b>Æ÷ÀÎÆ®</b></h5>
+                                <h5 class="card-title"><b>í¬ì¸íŠ¸</b></h5>
                                 <div class="row">
                                     <div class="col-md-12 mb-2"><img class="img-fluid d-block mx-auto"
                                                                      src="images/grade0.png" width="200"></div>
@@ -152,9 +146,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="card-text text-center mb-1">ÇöÀç È¸¿ø´ÔÀÇ µî±ŞÀº</p>
+                                <p class="card-text text-center mb-1">í˜„ì¬ íšŒì›ë‹˜ì˜ ë“±ê¸‰ì€</p>
                                 <h3 class="card-text text-center mb-1 text-success"><b>Level 1</b></h3>
-                                <p class="card-text text-center">ÀÔ´Ï´Ù.</p>
+                                <p class="card-text text-center">ì…ë‹ˆë‹¤.</p>
                                 <div class="row">
                                     <div class="col-md-12 mb-2">
                                         <div class="progress">
@@ -165,13 +159,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 text-center"><a href="#" class="card-link">Æ÷ÀÎÆ® ÃæÀü</a><a
-                                            href="#" class="card-link">Æ÷ÀÎÆ® ¹İÈ¯</a></div>
+                                    <div class="col-md-12 text-center"><a href="#" class="card-link">í¬ì¸íŠ¸ ì¶©ì „</a><a
+                                            href="#" class="card-link">í¬ì¸íŠ¸ ë°˜í™˜</a></div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><b>ÀÛ¼º±Û º¸±â</b></h5>
+                            <h5 class="card-title"><b>ì‘ì„±ê¸€ ë³´ê¸°</b></h5>
                             <ul class="list-group">
                                 <li class="list-group-item d-flex justify-content-between align-items-center"> Cras
                                     justo odio <span class="badge badge-primary badge-pill">14</span></li>
@@ -181,7 +175,7 @@
                                     Morbi leo risus <span class="badge badge-primary badge-pill">1</span></li>
                             </ul>
                             <div class="row">
-                                <div class="col-md-12 text-center"><a href="#" class="card-link">´õº¸±â</a></div>
+                                <div class="col-md-12 text-center"><a href="#" class="card-link">ë”ë³´ê¸°</a></div>
                             </div>
                         </div>
                     </div>
@@ -196,7 +190,7 @@
         <div class="row text-center align-items-center">
             <div class="p-4 col-md-4">
                 <h2 class="mb-4">Your Line</h2>
-                <p>Your LineÀº Á¦ÁÖ¿¡¼­ ´õ °¡Ä¡ÀÖ´Â °æÇèÀ» Ãß±¸ÇÕ´Ï´Ù. ´õ ÀÌ»ó ±â´Ù¸®Áö ¸¶¼¼¿ä.</p>
+                <p>Your Lineì€ ì œì£¼ì—ì„œ ë” ê°€ì¹˜ìˆëŠ” ê²½í—˜ì„ ì¶”êµ¬í•©ë‹ˆë‹¤. ë” ì´ìƒ ê¸°ë‹¤ë¦¬ì§€ ë§ˆì„¸ìš”.</p>
             </div>
             <div class="p-4 col-md-4">
                 <h2 class="mb-4">Mapsite</h2>
@@ -211,12 +205,12 @@
                 <p><a href="#" class="text-dark">
                     <i class="fa d-inline mr-3 text-muted fa-envelope-o"></i>info@yourline.com</a></p>
                 <p><a href="#" class="text-dark">
-                    <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>154904, Á¦ÁÖ½Ã, JEJU</a></p>
+                    <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>154904, ì œì£¼ì‹œ, JEJU</a></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 mt-3">
-                <p class="text-center">? Copyright 2019 YourLine - All rights reserved. </p>
+                <p class="text-center">Â© Copyright 2019 YourLine - All rights reserved. </p>
             </div>
         </div>
     </div>

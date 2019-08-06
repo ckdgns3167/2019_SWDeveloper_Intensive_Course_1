@@ -119,27 +119,29 @@ public class UserDAO {
         }
     }
 
-    public String getNickname(String id) {
+    public Object getProperty(String id, String pr) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String nickname = null;
+
         try {
             conn = jdbcTemplate.makeConn();
-            String sql = "SELECT nickname FROM usert WHERE ID = ?";
+            String sql = "SELECT " + pr + " FROM usert WHERE ID = ?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
+            Object x = null;
             if (rs.next()) {
-                nickname = rs.getString(1);
+                if (pr.equals("name") || pr.equals("phone")||pr.equals("nickname"))//문자
+                    x = rs.getString(1);
+                else if (pr.equals("point") || pr.equals("grade") || pr.equals("sex"))//숫자
+                    x = rs.getInt(1);
             }
-            return nickname;
+            return x;
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         } finally {
             closer(conn, pstmt);
         }
     }
-
-
 }

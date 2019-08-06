@@ -1,4 +1,3 @@
-<%@ page import="com.urline.dao.UserDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <script language="javascript">
     function close() {//창 닫기
@@ -14,7 +13,6 @@
 </script>
 <%
     request.setCharacterEncoding("UTF-8");
-    String id = session.getAttribute("userId").toString();
     String nickname = session.getAttribute("userNickname").toString();
 %>
 <b><span style="color: red; "><%=nickname%></span> 회원님!<br/>정말 탈퇴하시겠습니까?</b>

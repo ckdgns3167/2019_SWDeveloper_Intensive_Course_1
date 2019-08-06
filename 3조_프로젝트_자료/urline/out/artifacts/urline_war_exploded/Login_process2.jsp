@@ -19,11 +19,22 @@
 
     if (type == 1 || type == 2) // 로그인 성공
     {
-        String nickname = dao.getNickname(id);
-        // 세션에 현재 아이디 세팅
+        String nickname = (String) dao.getProperty(id,"nickname");
+        String name = (String) dao.getProperty(id,"name");
+        String phone = (String) dao.getProperty(id,"phone");
+        Integer point = (Integer) dao.getProperty(id,"point");
+        Integer grade = (Integer) dao.getProperty(id,"grade");
+        Integer sex = (Integer) dao.getProperty(id,"sex");
+
+        // 세션에 현재 사용자 정보 세팅
         session.setAttribute("userId", id);
         session.setAttribute("userType",type);//사용자의 타입 : 일반사용자(2), 관리자(1)
         session.setAttribute("userNickname",nickname);
+        session.setAttribute("userName",name);
+        session.setAttribute("userPhone",phone);
+        session.setAttribute("userPoint",point);
+        session.setAttribute("userGrade",grade);
+        session.setAttribute("userSex",sex);
         msg = ctxPath + "/Main.jsp";
     } else if (type == 0) // 비밀번호가 틀릴경우
     {
