@@ -24,16 +24,18 @@
         }
         session.invalidate(); // 모든세션정보 삭제
         msg = ctxPath + "/UserWithdrawalSuccess.jsp";
+
+        // sendRedirect(String URL) : 해당 URL로 이동
+        // URL뒤에 get방식 처럼 데이터를 전달가능
+        response.sendRedirect(msg);
     } else if (type == 0) // 비밀번호가 틀릴경우
     {
         %>
             <script>
                 alert("비밀번호가 올바르지 않습니다.\n다시 입력해주세요.");
+                history.go(-1);
             </script>
         <%
-        msg = ctxPath + "/UserWithdrawal.jsp";
     }
-    // sendRedirect(String URL) : 해당 URL로 이동
-    // URL뒤에 get방식 처럼 데이터를 전달가능
-    response.sendRedirect(msg);
+
 %>
