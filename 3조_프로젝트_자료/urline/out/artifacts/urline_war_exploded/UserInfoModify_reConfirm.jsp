@@ -5,6 +5,7 @@
     UserDAO dao = UserDAO.getInstance();
     String id = session.getAttribute("userId").toString();
     String pw = dao.getProperty(id, "pw").toString();
+
     //수정하기 폼에 입력된 값
     String reNickname = request.getParameter("nickname");
     String rePhone = request.getParameter("phone");
@@ -17,10 +18,13 @@
 <html>
     <head>
         <script>
+            function close() {//창 닫기
+                self.close();
+            }
             function pwCheck(){
                 if(document.comfirmPwForm.comfirmPw.value==<%=pw%>){
                     console.log("close 전");
-                    self.close();
+                    // self.close();
                     console.log("close 후");
                     return true;
                 }else{
@@ -36,7 +40,7 @@
             <table>
                 <tr>
                     <td><input type="password" name="comfirmPw" id="comfirmPw"/></td>
-                    <td><input type="submit" value="확인"/></td>
+                    <td><input type="submit" value="확인" /></td>
                 </tr>
             </table>
         </form>
