@@ -105,6 +105,14 @@
         var check = [false, false, false, false];
         var pw = document.getElementById("pw");
 
+        // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+        function popUpX(width){
+            return (window.screen.width / 2) - (width / 2)
+        }
+        function popUpY(height){
+            return (window.screen.height / 2) - (height / 2)
+        }
+        // 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
         function regularExCheck(re, e, msg) {
             if (re.test(e.value)) return true;
             alert(msg);
@@ -132,7 +140,7 @@
             }
             var ctxPath = "<%=request.getContextPath()%>";
             var url = ctxPath + "/ConfirmId.jsp?id=" + inputid.id.value;
-            open(url, "confirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180");
+            open(url, "confirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180,left="+ popUpX(310) + ", top="+ popUpY(180));
         }
 
         //각 입력란의 조건을 검사하는 함수...

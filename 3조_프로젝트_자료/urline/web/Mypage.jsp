@@ -16,15 +16,21 @@
     <link rel="stylesheet" href="css/mypage.css">
     <script type="text/javascript">
         var ctxPath = "<%=request.getContextPath()%>";
-
+        // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+        function popUpX(width){
+            return (window.screen.width / 2) - (width / 2)
+        }
+        function popUpY(height){
+            return (window.screen.height / 2) - (height / 2)
+        }
         function open_Modify_Or_Withdrawal(val) {// 마이페이지에서 정보 수정(0), 회원 탈퇴 버튼(1) 을 눌렀을 때 일이 일어나도록 하는 함수.
 
             if (val == "0") {//정보수정
                 var url = ctxPath + "/UserInfoModify.jsp";
-                open(url, "정보수정", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180");
+                open(url, "정보수정", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=500,left="+ popUpX(500) + ", top="+ popUpY(500));
             } else if (val == "1") {//회원탈퇴
                 var url = ctxPath + "/UserWithdrawal.jsp";
-                open(url, "탈퇴하기", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180");
+                open(url, "탈퇴하기", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180,left="+ popUpX(310) + ", top="+ popUpY(180));
             }
         }
         function logout(){//로그아웃 버튼을 눌럿을
