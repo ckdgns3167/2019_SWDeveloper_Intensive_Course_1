@@ -17,12 +17,30 @@
     String rePw = session.getAttribute("rePw").toString();
 
     if (!(nickname.equals(reNickname) || reNickname.equals(""))) {
-        dao.updateUser("UPDATE usert SET nickname = ?", reNickname);
+        dao.updateUser("UPDATE usert SET nickname = ? WHERE id = '" + id + "'", reNickname);
+        session.setAttribute("userNickname", reNickname);
     }
     if (!(phone.equals(rePhone) || rePhone.equals(""))) {
-        dao.updateUser("UPDATE usert SET phone = ?", rePhone);
+        dao.updateUser("UPDATE usert SET phone = ? WHERE id = '" + id + "'", rePhone);
+        session.setAttribute("userPhone", rePhone);
     }
     if (!(pw.equals(rePw) || rePw.equals(""))) {
-        dao.updateUser("UPDATE usert SET pw = ?", rePw);
+        dao.updateUser("UPDATE usert SET pw = ? WHERE id = '" + id + "'", rePw);
+        session.setAttribute("userPw", rePw);
     }
 %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function OK() {
+                opener.location.reload();
+                window.close();
+            }
+        </script>
+    </head>
+    <body>
+        <h1><b>수정 완료!</b></h1><br />
+        <button onclick="OK()">확인</button>
+    </body>
+</html>

@@ -43,7 +43,7 @@
     }
 </script>
 <b><span style="color: red; "><%=nickname%></span> 회원님의 정보를 수정하세요.</b>
-<form name="ModifyForm" method="POST" action="UserInfoModify_reComfirm.jsp">
+<form name="ModifyForm" method="POST" action="UserInfoModify_reConfirm.jsp">
     <table>
         <tr>
             <td>닉네임</td>

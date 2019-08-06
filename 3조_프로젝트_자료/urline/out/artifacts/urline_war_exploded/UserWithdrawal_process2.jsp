@@ -5,9 +5,6 @@
     String id = session.getAttribute("userId").toString();
     String pw3 = request.getParameter("pw3");
 
-    // URL 및 로그인관련 전달 메시지
-    String msg = "";
-
     // DB에서 아이디, 비밀번호 확인
     UserDAO dao = UserDAO.getInstance();
     int type = dao.ID_PW_Check(id, pw3);
@@ -23,11 +20,12 @@
             e.printStackTrace();
         }
         session.invalidate(); // 모든세션정보 삭제
-        msg = ctxPath + "/UserWithdrawalSuccess.jsp";
-
-        // sendRedirect(String URL) : 해당 URL로 이동
-        // URL뒤에 get방식 처럼 데이터를 전달가능
-        response.sendRedirect(msg);
+        %>
+            <script>
+                opener.location.replace("UserWithdrawalSuccess.jsp");
+                window.close();
+            </script>
+        <%
     } else if (type == 0) // 비밀번호가 틀릴경우
     {
         %>
@@ -37,5 +35,4 @@
             </script>
         <%
     }
-
 %>

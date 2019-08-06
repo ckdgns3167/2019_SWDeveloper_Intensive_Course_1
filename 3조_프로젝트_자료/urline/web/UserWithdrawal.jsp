@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <script language="javascript">
     function close() {//창 닫기
-        self.close();
+        window.close();
     }
     function instructionMessage() {//아무것도 입력안하는거 막아주기
         if (document.wirhdrawalForm.pw3.value == "") {
