@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.NamingException;
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 public class JdbcTemplate {
@@ -25,20 +26,34 @@ public class JdbcTemplate {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
+            // 커넥션 연결
             conn = makeConn();
+
+            // 자동 커밋을 false로 한다.
+            conn.setAutoCommit(false);
             stmt = conn.prepareStatement(sql);
 
             makingStatement(stmt, args);
             rc = stmt.executeUpdate();
-        } catch (Exception e) {
-            throw e;
+
+            conn.commit();
+        } catch (ClassNotFoundException | NamingException | SQLException sqle){
+            conn.rollback();
+            throw new RuntimeException(sqle.getMessage());
         } finally {
-            if (stmt != null)
-                stmt.close();
-            if (conn != null)
-                conn.close();
+            // Connection, PreparedStatement를 닫는다.
+            closer(conn, stmt);
         }
         return rc;
+    }
+
+    public static void closer(Connection conn, PreparedStatement stmt) {
+        try{
+            if ( stmt != null ){ stmt.close(); stmt=null; }
+            if ( conn != null ){ conn.close(); conn=null; }
+        }catch(Exception e){
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
     private void makingStatement(PreparedStatement stmt, Object[] args) throws SQLException {
