@@ -1,7 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%request.setCharacterEncoding("UTF-8");%>
+<%
+    String id = session.getAttribute("userId").toString();
+    String nickname = session.getAttribute("userNickname").toString();
+    String phone = session.getAttribute("userPhone").toString();
+    phone = phone.substring(0, 3) + "-" + phone.substring(3, 7) + "-" + phone.substring(7, 11);
+    Integer point = (Integer) session.getAttribute("userPoint");
+    Integer grade = (Integer) session.getAttribute("userGrade");
+
+    String level_1_image = "images/grade0.png";
+    String level_2_image = "images/grade1.png";
+    String level_3_image = "images/grade2.png";
+    String level_4_image = "images/grade3.png";
+    String level_5_image = "images/grade4.png";
+    String level_image = null;
+    String myLevel = null;
+    if (0 <= grade && grade <= 999) {//unRank
+        level_image = level_1_image;
+        myLevel = "Level 0 : 인턴";
+    } else if (1000 <= grade && grade <= 1999) {// level 1
+        level_image = level_1_image;
+        myLevel = "Level 1 : 사원";
+    } else if (2000 <= grade && grade <= 2999) {// level 2
+        level_image = level_2_image;
+        myLevel = "Level 2 : 대리";
+    } else if (3000 <= grade && grade <= 3999) {// level 3
+        level_image = level_3_image;
+        myLevel = "Level 3 : 과장";
+    } else if (4000 <= grade && grade <= 4999) {// level 4
+        level_image = level_4_image;
+        myLevel = "Level 4 : 차장";
+    } else if (5000 <= grade && grade <= 5999) {// level 5
+        level_image = level_5_image;
+        myLevel = "Level 5 : 부장";
+    }
+    // 0 ~ 100이 아닌 0 ~ 999 사이의 값을 %으로 표현하는 방법을 알아내야함
+    Integer percent = grade % 1000; //4자리 숫자인 grade를 뒤에 세자리만 가지고 하는 일이니까 1000으로 나눈 나머지를 이용한다.
+    percent = percent / 999 * 100;
+
+
+%>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,25 +50,31 @@
     <link rel="stylesheet" href="css/mypage.css">
     <script type="text/javascript">
         var ctxPath = "<%=request.getContextPath()%>";
+
         // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-        function popUpX(width){
+        function popUpX(width) {
             return (window.screen.width / 2) - (width / 2)
         }
-        function popUpY(height){
+
+        function popUpY(height) {
             return (window.screen.height / 2) - (height / 2)
         }
+
         function open_Modify_Or_Withdrawal(val) {// 마이페이지에서 정보 수정(0), 회원 탈퇴 버튼(1) 을 눌렀을 때 일이 일어나도록 하는 함수.
 
-            if (val == "0") {//정보수정
+            if (val == "0") {//수정하기
+                console.log("수정하기");
                 var url = ctxPath + "/UserInfoModify.jsp";
-                open(url, "정보수정", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180,left="+ popUpX(310) + ", top="+ popUpY(180));
-            } else if (val == "1") {//회원탈퇴
+                open(url, "수정하기", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=180,left=" + popUpX(500) + ", top=" + popUpY(300));
+            } else if (val == "1") {//탈퇴하기
+                console.log("탈퇴하기");
                 var url = ctxPath + "/UserWithdrawal.jsp";
-                open(url, "탈퇴하기", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180,left="+ popUpX(310) + ", top="+ popUpY(180));
+                open(url, "탈퇴하기", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=180,left=" + popUpX(500) + ", top=" + popUpY(300));
             }
         }
-        function logout(){//로그아웃 버튼을 눌럿을
-            location.href=ctxPath+"/Logout_process2.jsp";
+
+        function logout() {//로그아웃 버튼을 눌럿을 때
+            location.href = ctxPath + "/Logout_process2.jsp";
         }
     </script>
 </head>
@@ -74,42 +120,43 @@
                         <div class="card">
                             <div class="card-body" style="">
                                 <h5 class="card-title"><b>프로필</b></h5>
-                                <div class="row">
-                                    <div class="col-md-4"><img class="img-fluid d-block rounded-circle"
-                                                               src="images/profile.png"></div>
-                                    <div class="col-md-8 align-self-center" style="">
-                                        <div class="row mt-2">
-                                            <div class="col-md-3 align-self-center px-0" style="">
-                                                <h3>Id</h3>
-                                            </div>
-                                            <div class="col-md-9" style="">
-                                                <h3 class="text-muted" style="">아이디</h3>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3 align-self-center px-0">
-                                                <h3>별명</h3>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <h3 class="text-muted">닉네임</h3>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-md-4"><img class="img-fluid d-block rounded-circle" src="images/profile.png"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" style="">
+                                    <h5 class="text-right">아이디</h5>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h5 class="text-right">Phone</h5>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <h5 class="text-muted">010-1234-5678</h5>
-                                    </div>
+                                <div class="col-md-8" style="">
+                                    <h6 class="text-muted" style=""><%=id%>
+                                    </h6>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <button class="card-link" onclick="open_Modify_Or_Withdrawal(0)">정보수정</button>
-                                        <button  class="card-link text-warning" onclick="logout()">로그아웃</button>
-                                        <button  class="card-link text-danger" onclick="open_Modify_Or_Withdrawal(1)">회원탈퇴</button>
+                                <div class="col-md-4">
+                                    <h5 class="text-right">닉네임</h5>
                                 </div>
+                                <div class="col-md-8">
+                                    <h6 class="text-muted"><%=nickname%>
+                                    </h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5 class="text-right">포인트</h5>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6 class="text-muted"><%=point%>
+                                    </h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5 class="text-right">핸드폰</h5>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6 class="text-muted"><%=phone%>
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <button class="card-link" onclick="open_Modify_Or_Withdrawal(0)">수정하기</button>
+                                    <button class="card-link text-warning" onclick="">환급하기</button>
+                                    <button class="card-link text-danger" onclick="open_Modify_Or_Withdrawal(1)">탈퇴하기</button>
                                 </div>
                             </div>
                         </div>
@@ -130,37 +177,26 @@
                     <div class="col-md-6" style="">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"><b>포인트</b></h5>
+                                <h5 class="card-title"><b>나의 등급</b></h5>
                                 <div class="row">
                                     <div class="col-md-12 mb-2"><img class="img-fluid d-block mx-auto"
-                                                                     src="images/grade0.png" width="200"></div>
+                                                                     src="<%=level_image%>" width="200"></div>
+                                    <!---------------------------------------------------------->
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h3 contenteditable="true" class="text-right"><i class="fa fa-diamond"></i>
-                                            Point</h3>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="col-md-12" style="">
-                                            <h3 class="text-muted" style="">1300</h3>
-                                        </div>
-                                    </div>
+                                <div>
+                                    <h3 class="card-text text-center mb-1 text-success"><b><%=myLevel%>
+                                    </b></h3>
+                                    <!---------------------------------------------------------->
                                 </div>
-                                <p class="card-text text-center mb-1">현재 회원님의 등급은</p>
-                                <h3 class="card-text text-center mb-1 text-success"><b>Level 1</b></h3>
-                                <p class="card-text text-center">입니다.</p>
                                 <div class="row">
                                     <div class="col-md-12 mb-2">
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-striped" role="progressbar"
-                                                 style="width: 50%">50%
+                                                 style="width: 50%"><%=percent%>%
+                                                <!---------------------------------------------------------->
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 text-center"><a href="#" class="card-link">포인트 충전</a><a
-                                            href="#" class="card-link">포인트 반환</a></div>
                                 </div>
                             </div>
                         </div>

@@ -34,12 +34,13 @@ public class UserDAO {
     public void updateUser(String sql, Object... args) throws Exception {
         jdbcTemplate.update(sql, args);
     }
-
+    //마이페이지에서 쓰일 것이여 ~
     public UserVO selectOneUser(String sql, Object... args) throws Exception {
         UserRowMapper urm = new UserRowMapper();
         return (UserVO) jdbcTemplate.queryForObject(sql, urm, args);
     }
-
+    //관리자 아이디로 로그인 시 마이페이지 버튼대신 회원 관리 버튼이 있을 것이여 ~
+    //그럼 거기에 모든 사용자의 정보를 테이블에 쫘악 보여주면 되겠지
     public List<UserVO> selectAllUser(String sql, Object... args) throws Exception {
         UserRowMapper urm = new UserRowMapper();
         return jdbcTemplate.query(sql, urm, args);
@@ -81,18 +82,7 @@ public class UserDAO {
     }
 
     private void closer(Connection conn, PreparedStatement pstmt) {
-        try {
-            if (pstmt != null) {
-                pstmt.close();
-                pstmt = null;
-            }
-            if (conn != null) {
-                conn.close();
-                conn = null;
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
-        }
+        JdbcTemplate.closer(conn, pstmt);
     }
 
     public int confrimId(String id) {
