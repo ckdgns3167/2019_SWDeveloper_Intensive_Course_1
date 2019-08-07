@@ -140,7 +140,7 @@
             }
             var ctxPath = "<%=request.getContextPath()%>";
             var url = ctxPath + "/ConfirmId.jsp?id=" + inputid.id.value;
-            open(url, "confirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180,left="+ popUpX(310) + ", top="+ popUpY(180));
+            open(url, "confirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=180,left="+ popUpX(500) + ", top="+ popUpY(300));
         }
 
         //각 입력란의 조건을 검사하는 함수...
@@ -174,7 +174,7 @@
         }
 
         function phoneConditionCheck() {
-            if (regularExCheck(/^\d{3}\d{3,4}\d{4}$/, document.getElementById("phone"), "핸드폰 번호를 입력하세요.\n예)01012341234")) {
+            if (regularExCheck(/^\d{3}\d{4}\d{4}$/, document.getElementById("phone"), "핸드폰 번호를 입력하세요.\n예)01012341234")) {
                 check[3] = true;
             } else {
                 check[3] = false;

@@ -12,8 +12,8 @@
     }
 </script>
 <%
-    request.setCharacterEncoding("UTF-8");
-    String nickname = session.getAttribute("userNickname").toString();
+        request.setCharacterEncoding("UTF-8");
+        String nickname = session.getAttribute("userNickname").toString();
 %>
 <b><span style="color: red; "><%=nickname%></span> 회원님!<br/>정말 탈퇴하시겠습니까?</b>
 <form name="wirhdrawalForm" method="POST" action="UserWithdrawal_process2.jsp" onsubmit="return instructionMessage()">
