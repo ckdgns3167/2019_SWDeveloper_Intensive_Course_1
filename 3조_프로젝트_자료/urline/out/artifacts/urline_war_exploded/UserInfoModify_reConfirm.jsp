@@ -18,17 +18,14 @@
 <html>
     <head>
         <script>
-            function close() {//창 닫기
-                self.close();
-            }
             function pwCheck(){
-                if(document.comfirmPwForm.comfirmPw.value==<%=pw%>){
-                    console.log("close 전");
-                    // self.close();
-                    console.log("close 후");
+
+                if(document.comfirmPwForm.comfirmPw.value=='<%=pw%>'){
+                    console.log("안쪽")
                     return true;
                 }else{
                     alert("비밀번호가 일치하지 않습니다.\n다시 입력하세요.")
+                    document.comfirmPwForm.comfirmPw.value = "";
                     return false;
                 }
             }

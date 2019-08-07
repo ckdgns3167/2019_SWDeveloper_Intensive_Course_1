@@ -19,10 +19,13 @@
     <head>
         <script>
             function pwCheck(){
-                if(document.comfirmPwForm.comfirmPw.value==<%=pw%>){
+
+                if(document.comfirmPwForm.comfirmPw.value=='<%=pw%>'){
+                    console.log("안쪽")
                     return true;
                 }else{
                     alert("비밀번호가 일치하지 않습니다.\n다시 입력하세요.")
+                    document.comfirmPwForm.comfirmPw.value = "";
                     return false;
                 }
             }
