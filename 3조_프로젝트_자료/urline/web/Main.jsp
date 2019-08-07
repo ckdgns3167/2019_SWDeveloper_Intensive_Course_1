@@ -1,214 +1,283 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-         pageEncoding="EUC-KR" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="EUC-KR" %>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>메인 화면</title>
-
-    <script type="text/javascript">
-        var ctxPath = "<%=request.getContextPath()%>";
-
-        // 로그아웃 담당 JSP로 이동
-        function logoutPro() {
-            location.href = ctxPath + "/Logout_process2.jsp";
-        }
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    <meta http-equiv="Title" content="Your Line">
+    <meta http-equiv="Subject" content="줄서기 대행 서비스">
+    <meta http-equiv="Page-Enter" content="revealtrans(Duration=1,Transition=12)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css">
-    <link rel="stylesheet"
-          href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+    <link rel="stylesheet" href="css/font2.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&amp;display=swap" rel="stylesheet">
 </head>
 
-<body style="background-color: #e9e9e9; background-position: top left; background-size: 100%;">
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-        <a class="navbar-brand text-primary" href="#"> <i
-                class="fa d-inline fa-lg fa-circle-o"></i> <b> BRAND</b>
-        </a>
-        <button class="navbar-toggler navbar-toggler-right border-0"
-                type="button" data-toggle="collapse" data-target="#navbar5">
+<body class="">
+<!-- navigation bar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-transparent fixed-top">
+    <div class="container"><a class="navbar-brand" href="main.html">
+        <img src="./images/logo.png" alt="logo" width="175px"></a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                data-target="#navbar16">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbar5">
+        <div class="collapse navbar-collapse" id="navbar16">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="Main.jsp">홈</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">결제</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="Mypage.jsp">마이페이지</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
+                        class="nav-link" href="./Main.jsp">메인</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
+                        class="nav-link" href="#">글쓰기</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
+                        class="nav-link" href="./PaymentPage.jsp">결제</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
+                        class="nav-link" href="./Mypage.jsp" id="mypage">마이페이지</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
+                        class="nav-link" href="./ManagePage.jsp" id="userManager">회원관리</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
+                        class="nav-link" href="./">ABOUT</a></li>
             </ul>
-            <a class="btn btn-outline-primary navbar-btn ml-md-2">로그인</a>
+            <a class="btn navbar-btn ml-md-2 text-dark btn-sm">로그아웃</a>
         </div>
     </div>
 </nav>
-<div class="content mx-auto"
-     style="font-weight: bold; text-align: center; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.5); width: 80%;">
-
-    <div class="py-5">
-
-        <div class="container">
-            <!--카드 하나 -->
-            <div class="row">
-                <div class="col-md-4" style="">
-                    <div class="btn-group">
-                        <button class="btn btn-sucess dropdown-toggle"
-                                data-toggle="dropdown">지역선택
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">제주시</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">서귀포시</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 " style="">
-                    <div class="card bg-light mb-3">
-                        <div class="card-header">게시글 제목</div>
-                        <div class="card-body" style="">
-                            <div class="table-responsive" style="">
-                                <table class="table table-striped table-borderless">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col" class="w-25"><span
-                                                style="font-weight: normal;">날짜</span></th>
-                                        <th scope="col"><span style="font-weight: 400;">19.
-														07. 15(월)</span></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>시간</td>
-                                        <td>13 : 00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>장소</td>
-                                        <td>함덕해수욕장 / 델문도</td>
-                                    </tr>
-                                    <tr></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-info"
-                                data-toggle="modal" data-target="#exampleModalScrollable">
-                            자세히 보기
-                        </button>
-                        <div class="modal fade" id="exampleModalScrollable" tabindex="-1"
-                             role="dialog" aria-labelledby="exampleModalScrollableTitle"
-                             aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable"
-                                 role="document"
-                                 style="max-width: 100%; width: auto; display: table;">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="card text-center">
-                                                        <div class="card-header">게시글 제목</div>
-                                                        <div class="card-body">
-                                                            <div class="table-responsive">
-                                                                <table class="table table-striped table-borderless">
-                                                                    <thead>
-                                                                    <tr>
-                                                                        <th scope="col" class="w-25"><span
-                                                                                style="font-weight: 400;">작성일</span>
-                                                                        </th>
-                                                                        <th scope="col"><span
-                                                                                style="font-weight: normal;">19. 06. 22 (토)</span>
-                                                                        </th>
-                                                                    </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>약속 날짜</td>
-                                                                        <td>19. 07. 31 (수)</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>제안 포인트</td>
-                                                                        <td>4000</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>약속내용</td>
-                                                                        <td>델문도 까페에서 자리 맡아주세요! 13시에 도착하겠습니다</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                            <br>
-                                                            <hr>
-                                                            <p style="text-align: left;">댓글 달기</p>
-                                                            <div class="container">
-                                                                <table class="table table-bordered">
-                                                                    <thead>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <th>제목</th>
-                                                                        <td><textarea cols="50"
-                                                                                      placeholder="제목을 입력하세요. "
-                                                                                      name="content"
-                                                                                      class="border-0"></textarea></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>원하는 포인트</th>
-                                                                        <td><textarea cols="50"
-                                                                                      placeholder="포인트를 입력하세요. "
-                                                                                      name="content"
-                                                                                      class="border-0"></textarea></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>내용</th>
-                                                                        <td><textarea cols="50"
-                                                                                      placeholder="내용을 입력하세요. "
-                                                                                      name="content"
-                                                                                      class="border-0"></textarea></td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <input type="button" value="등록" onclick="sendData()"
-                                                                       class="pull-right btn btn-outline-success">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-info"
-                                                data-dismiss="modal">선택
-                                        </button>
+<!-- parallex -->
+<div class="py-5 text-center"
+     style="background-image: url(&quot;./images/parallax-bg.jpg&quot;); background-position: right bottom; background-size: cover; background-repeat: repeat; background-attachment: fixed;">
+    <div class="container">
+        <div class="row" style="">
+            <div class="bg-white-opacity-6 mt-5 p-4 col-10 mx-auto mx-md-0 col-lg-6 rounded">
+                <h1 style="">지금 바로 검색하세요!</h1>
+                <p class="mb-4" style="">아직까지 줄서서 기다리시나요? <br>YOUR LINE이 당신의 시간을 만들어드립니다.</p>
+                <div class="col-md-12 px-5" style="">
+                    <h3 class="mb-3" style="">검색 조건 설정</h3>
+                    <form style="">
+                        <div class="form-group"><label>시작 일시</label>
+                            <input type="text" class="form-control border rounded" id="example1">
+                            <div class="form-group mb-0"><label>종료 일시</label>
+                                <input type="text" class="form-control border rounded" id="example2"></div>
+                            <div class="form-group mb-0" style=""><label>지역 선택</label>
+                                <div class="btn-group btn-block shadow-none border rounded">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> 지역
+                                        선택
+                                    </button>
+                                    <div class="dropdown-menu" x-placement="bottom-start"
+                                         style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+                                        <a class="dropdown-item" href="#">제주도</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">제주시</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">서귀포</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <button type="submit" class="btn mt-4 btn-block btn-outline-dark p-2"><b>다음의 결과로 검색</b></button>
+                    </form>
                 </div>
             </div>
         </div>
-
     </div>
-
-
 </div>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous" style=""></script>
-<
-script
-src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-integrity = "sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-crossorigin = "anonymous" ></script>
-<script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+<!-- main content -->
+<div class="py-3" style="background-color: #ffffff">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- profile -->
+            <div class="col-md-3 border-4 border-right" style=""><img class="img-fluid p-1" src="./images/sion.jpg"
+                                                                      style="">
+                <ul class="list-group">
+                    <li class=" border-0 list-group-item d-flex justify-content-between align-items-center"> 닉네임 :
+                        si_Off <i class="fa fa-list text-muted fa-lg"></i></li>
+                    <li class=" border-0 list-group-item d-flex justify-content-between align-items-center"> 포인트 : 3892p
+                        <i class="fa fa-pie-chart text-muted fa-lg"></i></li>
+                    <li class=" border-0 list-group-item d-flex justify-content-between align-items-center"><i
+                            class="fa fa-cog text-muted fa-lg"></i></li>
+                    <li class=" border-0 list-group-item d-flex justify-content-between align-items-center"> LOG OUT <i
+                            class="fa fa-sign-out text-muted fa-lg"></i></li>
+                </ul>
+            </div>
+            <!-- content -->
+            <div class="col-md-6 border-left border-right border-light" style="">
+                <div id="hinged" class="card mb-3">
+                    <div class="card-header">
+                        <div style="display: inline-block; margin-top: 8px">우진해장국 4인(성인:2 어린이:2) 줄서기 부탁드릴게요!!</div>
+                        <a id="hinge" class="btn btn-primary float-right"
+                           style="background-color: #ffffff; display: inline-block"><i
+                                class="fa fa-minus fa-fw fa-1x py-1"></i></a>
+                    </div>
+                    <div class="card-body p-2 mt-0">
+                        <div class="row">
+                            <div class="col-md-2"><img class="img-fluid rounded-circle"
+                                                       src="https://static.pingendo.com/img-placeholder-3.svg"
+                                                       width="100"></div>
+                            <div class="col-md-2 px-0 align-self-center">
+                                <div class="col-md-12">
+                                    <h4 class="">박민준</h4>
+                                    <h8 class="">19.08.06</h8>
+                                </div>
+                            </div>
+                            <div class="col-md-8 align-self-center">
+                                <div class="col-md-12">
+                                    <p class="mb-0">지금 서귀포시 서호동에 위치하고 있는데 있다가 오후 5시 30분쯤 저녁식사 하러 갈거에요~~ 그럼 있다가
+                                        뵙겠습니다. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted text-right"> 2 days ago</div>
+                </div>
+                <!-- 바이 바이 -->
+            </div>
+            <!-- plus content -->
+            <div class="col-md-3 border-0 border-left-0" style="">
+                <div class="carousel slide" data-ride="carousel" id="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item"><img class="d-block img-fluid w-100" src="./images/bd.jpg">
+                            <div class="carousel-caption">
+                                <h5 class="m-0"></h5>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item"><img class="d-block img-fluid w-100" src="./images/jm.jpg">
+                            <div class="carousel-caption">
+                                <h5 class="m-0"></h5>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item active"><img class="d-block img-fluid w-100" src="./images/wj.jpg">
+                            <div class="carousel-caption">
+                                <h5 class="m-0"></h5>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span
+                            class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a
+                        class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span
+                        class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
+                </div>
+                <!-- list-->
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center"> Cras justo odio <span
+                            class="badge badge-primary badge-pill">14</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center"> Dapibus ac facilisis
+                        in <span class="badge badge-primary badge-pill">2</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center"> Morbi leo risus <span
+                            class="badge badge-primary badge-pill">1</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div class="border-top border-light" style="background-color: #a0e4ff">
+    <div class="container text-dark">
+        <div class="row text-center align-items-center">
+            <div class="p-4 col-md-4">
+                <h2 class="mb-4 text-white">Your Line</h2>
+                <p>Your Line은 제주에서 더 가치있는 경험을 추구합니다. 더 이상 기다리지 마세요.</p>
+            </div>
+            <div class="p-4 col-md-4">
+                <h2 class="mb-4 text-white">Mapsite</h2>
+                <ul class="list-unstyled"><a href="#" class="text-dark">Home</a> <br> <a href="#" class="text-dark">About
+                    us</a> <br> <a href="#" class="text-dark">Our services</a> <br> <a href="#" class="text-dark">Stories</a>
+                </ul>
+            </div>
+            <div class="p-4 col-md-4">
+                <h2 class="mb-4 text-white">Contact</h2>
+                <p><a href="#" class="text-dark">
+                    <i class="fa d-inline mr-3 text-muted fa-phone"></i>+082 10 1234 5678</a></p>
+                <p><a href="#" class="text-dark">
+                    <i class="fa d-inline mr-3 text-muted fa-envelope-o"></i>info@yourline.com</a></p>
+                <p><a href="#" class="text-dark">
+                    <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>154904, 제주시, JEJU</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <p class="text-center">? Copyright 2019 YourLine - All rights reserved. </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fixed button -->
+<!-- modal -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous" style=""></script>
-</body>
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+integrity = "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin = "anonymous" style =
+"" &gt;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
+<script src="./js/bootstrap-datetimepicker.min.js"></script>
+<script style="">
+    $('#exampleModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods
+    instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('.modal-body input').val(recipient)
+    })
 
-< /html>
+    function checkScroll() {
+    var startY = $('.navbar').height() * 2; //The point where the navbar changes in px
+    if ($(window).scrollTop() > startY) {
+    $('.navbar').addClass("scrolled");
+    } else {
+    $('.navbar').removeClass("scrolled");
+    }
+    }
+    if ($('.navbar').length > 0) {
+    $(window).on("scroll load resize", function() {
+    checkScroll();
+    });
+    }
+    // Date Time Picker
+    $(function() {
+    $('#example1').datetimepicker({
+    minDate: new Date()
+    });
+    $('#example2').datetimepicker({
+    useCurrent: false //Important! See issue #1075
+    });
+    $("#example1").on("dp.change", function(e) {
+    $('#example2').data("DateTimePicker").minDate(e.date);
+    });
+    $("#example2").on("dp.change", function(e) {
+    $('#example1').data("DateTimePicker").maxDate(e.date);
+    });
+    });
+    $(document).ready(function() {
+    $(window).scroll(function() {
+    if ($(this).scrollTop() > 200) {
+    $('#link-to-top').fadeIn();
+    } else {
+    $('#link-to-top').fadeOut();
+    }
+    });
+    $('#link-to-top').click(function() {
+    $('html, body').animate({
+    scrollTop: 0
+    }, 400);
+    return false;
+    });
+    });
+    $('#hinge').click(function() {
+    $('#hinged').addClass("hinge");
+    });
+</script>
+
+    </body>
+    </html>

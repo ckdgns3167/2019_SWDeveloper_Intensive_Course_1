@@ -13,25 +13,26 @@
     String level_3_image = "images/grade2.png";
     String level_4_image = "images/grade3.png";
     String level_5_image = "images/grade4.png";
+    String level_6_image = "images/grade5.png";
     String level_image = null;
     String myLevel = null;
     if (0 <= grade && grade <= 999) {//unRank
         level_image = level_1_image;
         myLevel = "Level 0 : 인턴";
     } else if (1000 <= grade && grade <= 1999) {// level 1
-        level_image = level_1_image;
+        level_image = level_2_image;
         myLevel = "Level 1 : 사원";
     } else if (2000 <= grade && grade <= 2999) {// level 2
-        level_image = level_2_image;
+        level_image = level_3_image;
         myLevel = "Level 2 : 대리";
     } else if (3000 <= grade && grade <= 3999) {// level 3
-        level_image = level_3_image;
+        level_image = level_4_image;
         myLevel = "Level 3 : 과장";
     } else if (4000 <= grade && grade <= 4999) {// level 4
-        level_image = level_4_image;
+        level_image = level_5_image;
         myLevel = "Level 4 : 차장";
     } else if (5000 <= grade && grade <= 5999) {// level 5
-        level_image = level_5_image;
+        level_image = level_6_image;
         myLevel = "Level 5 : 부장";
     }
     // 0 ~ 100이 아닌 0 ~ 999 사이의 값을 %으로 표현하는 방법을 알아내야함
@@ -192,7 +193,7 @@
                                     <div class="col-md-12 mb-2">
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-striped" role="progressbar"
-                                                 style="width: 50%"><%=percent%>%
+                                                 style="width: <%=percent%>%"><%=percent%>%
                                                 <!---------------------------------------------------------->
                                             </div>
                                         </div>

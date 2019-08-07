@@ -2,7 +2,7 @@
 <%@ page import="com.urline.dao.UserDAO" %>
 <title>ID 중복확인</title>
 <%
-    //한글 깨짐을 방지하기 위한 인코딩 처리
+        //한글 깨짐을 방지하기 위한 인코딩 처리
     request.setCharacterEncoding("UTF-8");
 
     String id = request.getParameter("id");
@@ -12,13 +12,16 @@
 
     if (check == -1) {
 %>
+
+<div style="width: 430px;height:180px;text-align: center;margin-left: 50px;">
 <b><span style="color: red; "><%=id%>
         </span>는 이미 사용중인 아이디입니다.</b>
 <form name="checkForm" method="POST" action="ConfirmId.jsp" onsubmit="return reConfirmId()">
     <b>다른 아이디를 입력해주세요.</b><br/><br/>
-    <input type="text" name="id2" id="id2" onchange="idConditionCheck()"/>
-    <input type="submit" value="ID중복확인"/>
+    <input type="text" name="id2" id="id2" onchange="idConditionCheck()"  style=" background-color: white; border-radius: 5px;"/>
+    <input type="submit" value="ID중복확인"  style=" background-color: white; border-radius: 5px;"/>
 </form>
+</div>
 <%
 } else {
 %>
@@ -29,10 +32,10 @@
              <b>입력하신 <span style="color: red; "><%=id2%>
                 <%}%>
             </span>는<br/>사용하실 수 있는 ID입니다. </b><br/><br/>
-            <input type="button" value="선택하기" onclick="setId()">
+            <input type="button" value="선택하기" onclick="setId()"  style=" background-color: white; border-radius: 5px;">
 </div>
 <%
-    }
+}
 %>
 <script language="javascript">
     function setId() {

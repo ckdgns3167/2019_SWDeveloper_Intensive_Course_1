@@ -42,28 +42,39 @@
         }
     }
 </script>
-<b><span style="color: red; "><%=nickname%></span> 회원님의 정보를 수정하세요.</b>
-<form name="ModifyForm" method="POST" action="UserInfoModify_reConfirm.jsp">
-    <table>
-        <tr>
-            <td>닉네임</td>
-            <td><input type="text" name="nickname" id="renickname" onchange="nicknameConditionCheck()"/></td><!--닉네임 변경-->
-        </tr>
-        <tr>
-            <td>핸드폰</td>
-            <td><input type="text" name="phone" id="rephone" onchange="phoneConditionCheck()"/></td><!--핸드폰 변경-->
-        </tr>
-        <tr>
-            <td>비밀번호</td>
-            <td><input type="password" name="pw1" id="repw1" onchange="pw1ConditionCheck()"/></td><!--비밀번호 변경-->
-        </tr>
-        <tr>
-            <td>비밀번호 확인</td>
-            <td><input type="password" name="pw2" id="repw2" onchange="pw2ConditionCheck()"/></td><!--비밀번호 확인-->
-        </tr>
-    </table>
-    <div>
-        <input type="submit" value="수정" />
-        <input type="button" value="취소" onclick="close()"/>
-    </div>
-</form>
+
+<style>
+    table {
+        border: 6px;
+    }
+</style>
+
+<div style="width: 400px;height:180px;position: absolute;margin-left: 25%;">
+    <b><span style="color: red; "><%=nickname%></span> 회원님의 정보를 수정하세요.</b>
+    <form name="ModifyForm" method="POST" action="UserInfoModify_reConfirm.jsp" style="margin-top: 20px;
+">
+        <table>
+            <tr>
+                <td>닉네임</td>
+                <td><input type="text" name="nickname" id="renickname" onchange="nicknameConditionCheck()"/></td>
+                <!--닉네임 변경-->
+            </tr>
+            <tr>
+                <td>핸드폰</td>
+                <td><input type="text" name="phone" id="rephone" onchange="phoneConditionCheck()"/></td><!--핸드폰 변경-->
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw1" id="repw1" onchange="pw1ConditionCheck()"/></td><!--비밀번호 변경-->
+            </tr>
+            <tr>
+                <td>비밀번호 확인</td>
+                <td><input type="password" name="pw2" id="repw2" onchange="pw2ConditionCheck()"/></td><!--비밀번호 확인-->
+            </tr>
+        </table>
+        <div class="user_button" style=" margin-left: 20%; margin-top: 10px;">
+            <input type="submit" value="수정" style=" background-color: white; border-radius: 5px;"/>
+            <input type="button" value="취소" onclick="close()" style=" background-color: white;border-radius: 5px;"/>
+        </div>
+    </form>
+</div>

@@ -13,16 +13,16 @@
 </script>
 <%
         request.setCharacterEncoding("UTF-8");
-        String nickname = session.getAttribute("userNickname").toString();
+    String nickname = session.getAttribute("userNickname").toString();
 %>
-<b><span style="color: red; "><%=nickname%></span> 회원님!<br/>정말 탈퇴하시겠습니까?</b>
-<form name="wirhdrawalForm" method="POST" action="UserWithdrawal_process2.jsp" onsubmit="return instructionMessage()">
-    <b>비밀번호를 입력해주세요.</b><br/><br/>
-    <input type="text" name="pw3" id="pw3"/>
-    <div>
-        <input type="submit" value="예"/>
-        <input type="button" value="아니오" onclick="close()"/>
-    </div>
-</form>
-
-
+<div style="width: 350px;height:180px;position: absolute;margin-left: 30%;">
+    <b><span style="color: red; "><%=nickname%></span> 회원님!<br/>정말 탈퇴하시겠습니까?</b>
+    <form name="withdrawalForm" method="POST" action="UserWithdrawal_process2.jsp" onsubmit="return instructionMessage()">
+        <b>비밀번호를 입력해주세요.</b><br/><br/>
+        <input type="text" name="pw3" id="pw3"/>
+        <div style=" margin-left: 40px;  margin-top: 10px;">
+            <input type="submit" value="탈퇴" style="background-color: white; border-radius: 5px;"/>
+            <input type="button" value="취소" onclick="close()"  style="background-color: white; border-radius: 5px;"/>
+        </div>
+    </form>
+</div>
