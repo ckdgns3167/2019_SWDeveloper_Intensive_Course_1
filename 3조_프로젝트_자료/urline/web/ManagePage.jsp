@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="EUC-KR" %>
-<%
-    String userid = session.getAttribute("userId").toString();
-    String userNickname = session.getAttribute("userNickname").toString();
-    String userPoint=  session.getAttribute("userPoint").toString();
-    String userType = session.getAttribute("userType").toString();
-    String userType =
-%>
+<%@ page import="com.urline.dao.UserDAO" %>
+<%@ page import="com.urline.vo.UserVO" %>
+<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%request.setCharacterEncoding("UTF-8");%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +13,28 @@
           type="text/css">
     <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script>
+        // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+        function popUpX(width){
+            return (window.screen.width / 2) - (width / 2)
+        }
+        function popUpY(height){
+            return (window.screen.height / 2) - (height / 2)
+        }
+        var ctxPath = "<%=request.getContextPath()%>";
+        function userUpdate(userNo,userId) {
+            var url = ctxPath + "/UpdateManager.jsp?userNo="+userNo +"&userId="+userId;
+            open(url, "update", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=275,left="+ popUpX(500) + ", top="+ popUpY(360));
+        }
+        function userDelete(userNo,userId) {
+            var url = ctxPath + "/DeleteManager.jsp?userNo="+userNo +"&userId="+userId;
+            open(url, "delete", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=140,left="+ popUpX(500) + ", top="+ popUpY(360));
+        }
+    </script>
 </head>
 <body>
 <!-- navigation bar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-transparent fixed-top scrolled" style="">
+    <nav class="navbar navbar-expand-md navbar-dark bg-transparent fixed-top scrolled">
         <div class="container"><a class="navbar-brand" href="#">
             <i class="fa d-inline fa-lg fa-stop-circle"></i>
             <b>YOUR LINE</b>
@@ -36,7 +52,7 @@
                     <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a class="nav-link" href="./ManagePage.jsp" id="userManager">회원관리</a></li>
                     <li class="nav-item"><a class="nav-link" href="./AboutUs.jsp">AboutUs</a></li>
                 </ul>
-                <a class="btn navbar-btn ml-md-2 btn-light text-dark">로그아웃</a>
+                <a class="btn navbar-btn ml-md-2 btn-light text-dark"  href="./Logout_process2.jsp">로그아웃</a>
             </div>
         </div>
     </nav>
@@ -56,84 +72,77 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8" style="">
                     <div class="col-12">
-                        <table class="table table-striped">
+                        <table class="table table-striped" style="margin-left: auto;margin-right: auto;">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">아이디</th>
+                                <th scope="col">이름</th>
                                 <th scope="col">닉네임</th>
-                                <th scope="col">핸드폰번호</th>
+                                <th scope="col">핸드폰</th>
                                 <th scope="col">성별</th>
-                                <th scope="col">보유 포인트</th>
+                                <th scope="col">포인트</th>
                                 <th scope="col">등급</th>
-                                <th scope="col">Action</th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td style="">@mdo</td>
-                                <td style="">
-                                    <div class="btn-group" style="">
-                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">관리</button>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="#">정보 수정</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">회원 삭제</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#" style="">상세 정보</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">관리</button>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="#">정보 수정</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">회원 삭제</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#" style="">상세 정보</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>@twitter</td>
-                                <td>@twitter</td>
-                                <td>@twitter</td>
-                                <td contenteditable="true">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">관리</button>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="#">정보 수정</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">회원 삭제</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#" style="">상세 정보</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                            <%
+                                UserDAO dao = UserDAO.getInstance();
+                                List<UserVO> userList= dao.selectAllUser("SELECT * FROM usert WHERE userNo != 0");
+                                int i = 1;
+                                String phone = null;
+                                String gradeName = null;
+                                for(UserVO  vo: userList){
+                                    String sex_s= null;
+                                    if(vo.getSex()==1){
+                                        sex_s = "남자";
+                                    }else{
+                                        sex_s = "여자";
+                                    }
+                                    phone = vo.getPhone().substring(0,3) + "-" + vo.getPhone().substring(3,7) + "-" + vo.getPhone().substring(7,11);
+                                    Integer grade = vo.getGrade();
+                                    if (0 <= grade && grade <= 999) {//unRank
+                                        gradeName = "L0.인턴";
+                                    } else if (1000 <= grade && grade <= 1999) {// level 1
+                                        gradeName = "L1.사원";
+                                    } else if (2000 <= grade && grade <= 2999) {// level 2
+                                        gradeName = "L2.대리";
+                                    } else if (3000 <= grade && grade <= 3999) {// level 3
+                                        gradeName = "L3.과장";
+                                    } else if (4000 <= grade && grade <= 4999) {// level 4
+                                        gradeName = "L4.차장";
+                                    } else if (5000 <= grade && grade <= 5999) {// level 5
+                                        gradeName = "L5.부장";
+                                    }
+                                    %>
+                                    <tr>
+                                        <th scope="row"><%=i++%></th>
+                                        <td><%=vo.getId()%></td>
+                                        <td><%=vo.getName()%></td>
+                                        <td><%=vo.getNickname()%></td>
+                                        <td><%=phone%></td>
+                                        <td><%=sex_s%></td>
+                                        <td><%=vo.getPoint()%>&nbspP</td>
+                                        <td><%=gradeName%>:<%=vo.getGrade()%>점</td>
+                                        <td>
+                                            <div class="btn-group" style="">
+                                                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">관리</button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" onclick="userUpdate(<%=vo.getUserNo()%>,'<%=vo.getId()%>')">정보 수정</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" onclick="userDelete(<%=vo.getUserNo()%>,'<%=vo.getId()%>')">회원 삭제</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <%
+                                }
+                            %>
+
                             </tbody>
                         </table>
                     </div>
-                    <div class="d-flex justify-content-end"><a class="btn btn-link mr-3" href="#">사용자 생성</a></div>
                 </div>
                 <div class="col-md-2"></div>
             </div>

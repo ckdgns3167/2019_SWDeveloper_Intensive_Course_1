@@ -1,4 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="EUC-KR" %>
+<%
+    Object userType_o =  session.getAttribute("userType");
+    Object id_o = session.getAttribute("userId");
+    Integer userType = null;
+    String id = null;
+    if(id_o!=null){
+        id = id_o.toString();
+    }
+    if(userType_o!=null){
+        userType = (Integer) userType_o;
+    }
+%>
 <!DOCTYPE html>
 <html>
 
@@ -28,20 +40,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar16">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
-                        class="nav-link" href="./Main.jsp">메인</a></li>
-                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
-                        class="nav-link" href="#">글쓰기</a></li>
-                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
-                        class="nav-link" href="./PaymentPage.jsp">결제</a></li>
-                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
-                        class="nav-link" href="./Mypage.jsp" id="mypage">마이페이지</a></li>
-                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
-                        class="nav-link" href="./ManagePage.jsp" id="userManager">회원관리</a></li>
-                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a
-                        class="nav-link" href="./">ABOUT</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a class="nav-link" href="./Main.jsp">메인</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a class="nav-link" href="#">글쓰기</a></li>
+                <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a class="nav-link" href="./PaymentPage.jsp">결제</a></li>
+
+                    <%if (userType == null || userType == 2) { %>
+                    <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a class="nav-link" href="./Mypage.jsp" id="mypage">마이페이지</a></li>
+                    <%} else if(userType != null && userType == 1){%>
+                    <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a class="nav-link" href="./ManagePage.jsp" id="userManager">회원관리</a></li>
+                    <%}%>
+                    <li class="nav-item" style="font-size: 1.8em; font-family: 'Black Han Sans', sans-serif;"><a class="nav-link" href="./AboutUs.jsp">ABOUT</a></li>
+
             </ul>
-            <a class="btn navbar-btn ml-md-2 text-dark btn-sm">로그아웃</a>
+            <%if(id == null){ %>
+            <a class="btn navbar-btn ml-md-2 text-dark btn-sm" href="./Login.jsp">로그인</a>
+            <%} else{ %>
+            <a class="btn navbar-btn ml-md-2 text-dark btn-sm" href="./Logout_process2.jsp">로그아웃</a>
+            <%}%>
         </div>
     </div>
 </nav>
@@ -219,13 +234,12 @@ integrity = "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa
 "" &gt;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
 <script src="./js/bootstrap-datetimepicker.min.js"></script>
-<script style="">
+<script>
     $('#exampleModal').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var recipient = button.data('whatever') // Extract info from data-* attributes
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods
-    instead.
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other method instead.
     var modal = $(this)
     modal.find('.modal-title').text('New message to ' + recipient)
     modal.find('.modal-body input').val(recipient)
@@ -279,5 +293,5 @@ integrity = "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa
     });
 </script>
 
-    </body>
-    </html>
+</body>
+< /html>
