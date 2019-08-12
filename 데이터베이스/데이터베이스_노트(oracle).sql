@@ -194,7 +194,7 @@ select y.name, x.avg from (select stid, avg(score) AS avg from scoret group by s
 as , join을 사용할 때 mysql과 문법이 약간 다르다. 하지만 기본 개념은 동일하다.
 "거의 모든 데이터베이스의 기본 개념은 같다." 하나만 제대로 해놓으면 다른거 어렵지 않다.
 
-Constraint int Oracle
+Constraint in Oracle
 - PRIMARY KEY, FOREIGN KEY , CHECK, UNIQUE, NOT NULL
 alter table studentt add constraint pk_studentt_stid PRIMARY KEY (stid);
 참조무결성 : FK 쪽에는 PK에 없는 데이터는 존재하면 안된다.

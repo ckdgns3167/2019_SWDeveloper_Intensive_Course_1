@@ -1,0 +1,4 @@
+{ 
+    code:'OK',
+    result:['apple','banana','orange']
+}
