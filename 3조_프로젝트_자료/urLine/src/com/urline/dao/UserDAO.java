@@ -56,7 +56,7 @@ public class UserDAO {
 
         try {
             conn = jdbcTemplate.makeConn();
-            String sql = "SELECT pw,type FROM usert WHERE ID=?";
+            String sql = "SELECT pw, type FROM usert WHERE ID=?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();

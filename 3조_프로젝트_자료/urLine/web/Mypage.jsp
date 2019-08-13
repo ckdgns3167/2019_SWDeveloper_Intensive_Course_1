@@ -1,5 +1,4 @@
-<%@ page import="com.oreilly.servlet.MultipartRequest" %>
-<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%request.setCharacterEncoding("UTF-8");%>
 <%
@@ -220,7 +219,7 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-center mb-3">카페델문도 카페 오후1시까지...<span class="badge badge-primary badge-pill">1</span></li>
                             </ul>
                             <div class="row">
-                                <div class="col-md-12 text-center"><a href="#" class="card-link">더보기<외/a></div>
+                                <div class="col-md-12 text-center"><a href="#" class="card-link">더보기</a></div>
                             </div>
                         </div>
                     </div>
@@ -316,13 +315,12 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" style=""></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" style="">
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>
-<script src="./js/navscroll.js" style=""></script>
-<script src="./js/upbtn.js" style=""></script>
-<script style="">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="./js/navscroll.js"></script>
+<script src="./js/upbtn.js"></script>
+<script>
     var money = 1;
     var point = 100;
 

@@ -17,7 +17,7 @@ public class JdbcTemplate {
     }
 
     public Connection makeConn() throws Exception {
-        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "hr", "hr");
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521/XE", "test", "test");
         return conn;
     }
 
